@@ -1786,7 +1786,7 @@ window.NEOX_CONFIG = Object.freeze({
       gp_play: 'Jogar no Roblox', gp_playing: 'Jogando agora', gp_peak: 'Pico desta visita', gp_visits: 'Visitas totais',
       gp_likes: 'Curtidas', gp_favs: 'Favoritos', gp_approval: 'Aprovação',
       gp_details: 'Detalhes', gp_genre: 'Gênero', gp_max: 'Jogadores por servidor', gp_upd: 'Última atualização',
-      gp_wait: 'Coletando dados… o gráfico monta enquanto você fica aqui.', gp_tick: 'Ao vivo: atualiza a cada 3 segundos',
+      gp_wait: 'Coletando dados… o gráfico monta enquanto você fica aqui.', gp_tick: 'Ao vivo: atualiza a cada 10 segundos',
       title: 'NeoX Studio | Jogos no Roblox',
       fs_tag: 'Em destaque', footer_disc: 'Estúdio independente. Sem afiliação com a Roblox Corporation.'
     },
@@ -1854,7 +1854,7 @@ window.NEOX_CONFIG = Object.freeze({
       gp_play: 'Play on Roblox', gp_playing: 'Playing now', gp_peak: 'Peak this visit', gp_visits: 'Total visits',
       gp_likes: 'Likes', gp_favs: 'Favorites', gp_approval: 'Approval',
       gp_details: 'Details', gp_genre: 'Genre', gp_max: 'Players per server', gp_upd: 'Last update',
-      gp_wait: 'Collecting data… the chart builds while you stay here.', gp_tick: 'Live: updates every 3 seconds',
+      gp_wait: 'Collecting data… the chart builds while you stay here.', gp_tick: 'Live: updates every 10 seconds',
       title: 'NeoX Studio | Games on Roblox',
       fs_tag: 'Featured', footer_disc: 'Independent studio. Not affiliated with Roblox Corporation.'
     }
@@ -2402,7 +2402,7 @@ window.NEOX_CONFIG = Object.freeze({
 
   /* ---------------- Estatísticas Roblox ---------------- */
   const votesTimer = { at: 0 };
-  const POLL_MS = 5000, POLL_GAME_MS = 3000;
+  const POLL_MS = 20000, POLL_GAME_MS = 10000;
   let statsTimer = null, refreshing = false, liveFails = 0, lastSave = 0, votesBusy = false;
 
   async function fetchJSON(url, timeout = 9000) {
