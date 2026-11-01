@@ -1790,7 +1790,7 @@ window.NEOX_CONFIG = Object.freeze({
       sending: 'Enviando…', sent: 'Mensagem enviada. A gente responde assim que puder.',
       send_error: 'Não deu para enviar. Tenta de novo ou chama no Discord.',
       send_activation: 'O formulário ainda precisa ser ativado pelo dono do site. Chama a gente no Discord por enquanto.',
-      form_wait: 'Calma aí! Espera um pouquinho antes de mandar outra mensagem.',
+      form_wait: 'Calma aí! Espera um pouquinho antes de mandar outra mensagem.', form_cooldown: 'Você já enviou uma mensagem. Aguarde 30 minutos para mandar outra.',
       form_off: 'O formulário está fora do ar por enquanto. Chama a gente no Discord.',
       msg_short: 'Escreve um pouco mais (pelo menos 16 caracteres).',
       email_bad: 'Digite um e-mail válido.', name_short: 'Digite seu nome.',
@@ -1858,7 +1858,7 @@ window.NEOX_CONFIG = Object.freeze({
       sending: 'Sending…', sent: 'Message sent. We will get back to you soon.',
       send_error: 'Could not send. Try again or reach us on Discord.',
       send_activation: 'The form still needs to be activated by the site owner. Reach us on Discord for now.',
-      form_wait: 'Easy there! Please wait a moment before sending another message.',
+      form_wait: 'Easy there! Please wait a moment before sending another message.', form_cooldown: 'You already sent a message. Please wait 30 minutes before sending another.',
       form_off: 'The form is down for now. Reach us on Discord.',
       msg_short: 'Please write a bit more (at least 16 characters).',
       email_bad: 'Enter a valid email.', name_short: 'Enter your name.',
@@ -2021,6 +2021,7 @@ window.NEOX_CONFIG = Object.freeze({
       else if (st === 'error') formStatus.textContent = t.send_error;
       else if (st === 'activation') formStatus.textContent = t.send_activation;
       else if (st === 'wait') formStatus.textContent = t.form_wait;
+      else if (st === 'cooldown') formStatus.textContent = t.form_cooldown;
     }
     if (view && view.type === 'game') { fillGamePage(); renderGamePage(); }
     if (view && view.type === 'dev') fillDevPage();
@@ -3258,7 +3259,7 @@ window.NEOX_CONFIG = Object.freeze({
   if (contactForm) {
     const fName = $('#f-name'), fEmail = $('#f-email'), fRoblox = $('#f-roblox'), fMsg = $('#f-msg');
     const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
-    const COOLDOWN_MS = 45000;
+    const COOLDOWN_MS = 1800000; /* 30 minutos entre mensagens */
     const MIN_FILL_MS = 3000;
     let openedAt = 0;
     contactForm.addEventListener('focusin', () => { if (!openedAt) openedAt = Date.now(); });
@@ -3302,7 +3303,7 @@ window.NEOX_CONFIG = Object.freeze({
       if (!openedAt || Date.now() - openedAt < MIN_FILL_MS) { setStatus('wait', t.form_wait, 'is-error'); return; }
 
       const lastSent = num(store.get('neox-form-last')) || 0;
-      if (Date.now() - lastSent < COOLDOWN_MS) { setStatus('wait', t.form_wait, 'is-error'); return; }
+      if (Date.now() - lastSent < COOLDOWN_MS) { setStatus('cooldown', t.form_cooldown, 'is-error'); return; }
 
       const name = cleanLine(fName.value, 80);
       const email = cleanLine(fEmail.value, 120);
