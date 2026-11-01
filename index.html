@@ -7,7 +7,7 @@
 
 <!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
      'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://thumbnails.roproxy.com https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Anti-clickjacking: se o site for aberto dentro de um iframe de outro domínio, ele some e sai do quadro. -->
@@ -869,6 +869,16 @@ html.hero-off .hero-art img{ animation-play-state:paused; }
 }
 /* Proteção leve: impede arrastar imagens/vídeos (apenas atrito; não impede cópia). */
 img,video{-webkit-user-drag:none;user-drag:none}
+
+/* Galeria de imagens do jogo (faixa rolável) */
+.gp-strip{display:flex;gap:.7rem;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:.8rem;padding-bottom:.5rem;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.gp-strip img{flex:0 0 min(80%,360px);width:min(80%,360px);height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:14px;border:1px solid var(--line);scroll-snap-align:start;background:#0a0a10}
+/* Mobile: remove efeitos caros (blur em todo elemento, fundo borrado e gradientes animados gigantes) */
+@media (hover:none),(pointer:coarse),(max-width:820px){
+  .js [data-reveal],.js [data-reveal="sm"],.js .stagger > *,.js .section-head[data-reveal] > .section-title,.js .game-media img,.js .media-frame img{ filter:none !important; }
+  .gp-backdrop img{ filter:none; transform:none; opacity:.1; }
+  .ambient span{ animation:none; }
+}
 </style>
 <noscript><style>html{display:block!important} #site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
 </head>
@@ -1448,6 +1458,11 @@ img,video{-webkit-user-drag:none;user-drag:none}
       </dl>
       <p class="gp-sub" id="gp-note"></p>
     </div>
+
+    <div class="gp-card va" id="gp-media-card" style="--i:8;margin-top:.8rem" hidden>
+      <h2 style="font-size:1.1rem" data-i18n="gp_images">Imagens do jogo</h2>
+      <div class="gp-strip" id="gp-strip"></div>
+    </div>
   </div>
 </section>
 
@@ -1785,7 +1800,7 @@ window.NEOX_CONFIG = Object.freeze({
       gp_more: 'Ver perfil e números ao vivo', gp_back: 'Todos os jogos', gp_live: 'Ao vivo', gp_tag: 'Perfil do jogo', gp_by: 'por',
       gp_play: 'Jogar no Roblox', gp_playing: 'Jogando agora', gp_peak: 'Pico desta visita', gp_visits: 'Visitas totais',
       gp_likes: 'Curtidas', gp_favs: 'Favoritos', gp_approval: 'Aprovação',
-      gp_details: 'Detalhes', gp_genre: 'Gênero', gp_max: 'Jogadores por servidor', gp_upd: 'Última atualização',
+      gp_images: 'Imagens do jogo', gp_details: 'Detalhes', gp_genre: 'Gênero', gp_max: 'Jogadores por servidor', gp_upd: 'Última atualização',
       gp_wait: 'Coletando dados… o gráfico monta enquanto você fica aqui.', gp_tick: 'Ao vivo: atualiza a cada 10 segundos',
       title: 'NeoX Studio | Jogos no Roblox',
       fs_tag: 'Em destaque', footer_disc: 'Estúdio independente. Sem afiliação com a Roblox Corporation.'
@@ -1853,7 +1868,7 @@ window.NEOX_CONFIG = Object.freeze({
       gp_more: 'View profile and live numbers', gp_back: 'All games', gp_live: 'Live', gp_tag: 'Game profile', gp_by: 'by',
       gp_play: 'Play on Roblox', gp_playing: 'Playing now', gp_peak: 'Peak this visit', gp_visits: 'Total visits',
       gp_likes: 'Likes', gp_favs: 'Favorites', gp_approval: 'Approval',
-      gp_details: 'Details', gp_genre: 'Genre', gp_max: 'Players per server', gp_upd: 'Last update',
+      gp_images: 'Game images', gp_details: 'Details', gp_genre: 'Genre', gp_max: 'Players per server', gp_upd: 'Last update',
       gp_wait: 'Collecting data… the chart builds while you stay here.', gp_tick: 'Live: updates every 10 seconds',
       title: 'NeoX Studio | Games on Roblox',
       fs_tag: 'Featured', footer_disc: 'Independent studio. Not affiliated with Roblox Corporation.'
@@ -2229,6 +2244,7 @@ window.NEOX_CONFIG = Object.freeze({
     box.appendChild(ph);
   }
   function onImgError(img) {
+    if (img.closest && img.closest('.gp-strip')) { img.remove(); const s = $('#gp-strip'); if (s && !s.children.length) { const c = $('#gp-media-card'); if (c) c.hidden = true; } return; }
     if (img.dataset.fallbacks) {
       img._queue = img._queue || img.dataset.fallbacks.split(',').map((s) => s.trim()).filter(Boolean);
       const next = img._queue.shift();
@@ -2536,6 +2552,95 @@ window.NEOX_CONFIG = Object.freeze({
     }
   }
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshStats(); });
+
+  /* ---------------- Imagens do jogo (ícones e banners ao vivo do Roblox) ---------------- */
+  /* MEDIA-START */
+  const THUMBS_API = 'https://thumbnails.roproxy.com/v1/games/';
+  const RBX_IMG = /^https:\/\/[a-z0-9-]+\.rbxcdn\.com\/[A-Za-z0-9\/_.-]{4,260}$/;
+  const safeRbx = (u) => (typeof u === 'string' && RBX_IMG.test(u) ? u : '');
+  const MEDIA_TTL = 300000;
+  const ICON_LOCAL = { 'assets/anime-paradise.png': 'ap', 'assets/free-fire-max.png': 'ff' };
+  const media = { icons: {}, shots: {}, at: 0 };
+  function parseMedia(ic, sh) {
+    const icons = {}, shots = {};
+    for (const d of (ic && ic.data) || []) {
+      const key = UNIVERSE_TO_KEY[String(d && d.targetId)];
+      const url = d && d.state === 'Completed' ? safeRbx(d.imageUrl) : '';
+      if (key && url && !GAMES[key].soon) icons[key] = url;
+    }
+    for (const d of (sh && sh.data) || []) {
+      const key = UNIVERSE_TO_KEY[String(d && d.universeId)];
+      if (!key || GAMES[key].soon) continue;
+      const list = ((d && d.thumbnails) || []).filter((t) => t && t.state === 'Completed').map((t) => safeRbx(t.imageUrl)).filter(Boolean).slice(0, 12);
+      if (list.length) shots[key] = list;
+    }
+    return { icons, shots };
+  }
+  /* MEDIA-END */
+  function applyIcons() {
+    $$('img').forEach((img) => {
+      const local = img.dataset.local || img.getAttribute('src') || '';
+      const key = ICON_LOCAL[local];
+      if (!key) return;
+      img.dataset.local = local;
+      const remote = media.icons[key];
+      if (remote && img.getAttribute('src') !== remote) { img._queue = null; img.dataset.fallbacks = local; img.src = remote; }
+    });
+  }
+  function renderStrip() {
+    const card = $('#gp-media-card'), strip = $('#gp-strip');
+    if (!card || !strip || !gameKey) return;
+    const list = media.shots[gameKey] || [];
+    const sig = gameKey + '|' + list.join(',');
+    if (strip.dataset.sig === sig) return;
+    strip.dataset.sig = sig;
+    strip.textContent = '';
+    card.hidden = !list.length;
+    const name = GAME_PAGES[gameKey] ? GAME_PAGES[gameKey].name : '';
+    list.forEach((src, i) => {
+      const im = document.createElement('img');
+      im.src = src; im.alt = `${name} ${i + 1}`; im.loading = 'lazy'; im.decoding = 'async'; im.width = 768; im.height = 432;
+      strip.appendChild(im);
+    });
+  }
+  function applyMedia() { applyIcons(); if (view && view.type === 'game') fillGamePage(); }
+  let mediaBusy = false;
+  async function loadMedia() {
+    if (mediaBusy) return;
+    if (!media.at) {
+      const c = store.get('neox-media-v1');
+      if (c && c.icons && c.shots) {
+        for (const k of Object.keys(GAMES)) {
+          const i = safeRbx(c.icons[k]); if (i) media.icons[k] = i;
+          const l = Array.isArray(c.shots[k]) ? c.shots[k].map(safeRbx).filter(Boolean).slice(0, 12) : [];
+          if (l.length) media.shots[k] = l;
+        }
+        media.at = num(c.at) || 1;
+        applyMedia();
+      }
+    }
+    if (Date.now() - media.at < MEDIA_TTL) return;
+    mediaBusy = true;
+    const ids = Object.values(GAMES).filter((g) => !g.soon).map((g) => g.universe).join(',');
+    try {
+      const [ic, sh] = await Promise.all([
+        fetchJSON(`${THUMBS_API}icons?universeIds=${ids}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false`, 9000),
+        fetchJSON(`${THUMBS_API}multiget/thumbnails?universeIds=${ids}&countPerUniverse=12&defaults=true&size=768x432&format=Png&isCircular=false`, 9000)
+      ]);
+      const next = parseMedia(ic, sh);
+      if (Object.keys(next.icons).length || Object.keys(next.shots).length) {
+        media.icons = Object.assign({}, media.icons, next.icons);
+        media.shots = Object.assign({}, media.shots, next.shots);
+        media.at = Date.now();
+        store.set('neox-media-v1', { at: media.at, icons: media.icons, shots: media.shots });
+        applyMedia();
+      } else { media.at = Date.now() - MEDIA_TTL + 120000; }
+    } catch (err) {
+      media.at = Date.now() - MEDIA_TTL + 120000;
+      console.warn('[NeoX] Imagens ao vivo falharam:', err.message || err);
+    } finally { mediaBusy = false; }
+  }
+  const mediaLoop = () => { if (!document.hidden) loadMedia(); setTimeout(mediaLoop, 60000); };
 
   /* ---------------- Equipe: monta os cards a partir de DEVS (sem innerHTML) ---------------- */
   (() => {
@@ -2907,8 +3012,9 @@ window.NEOX_CONFIG = Object.freeze({
     const g = GAME_PAGES[gameKey], t = dict();
     $('#gp-title').textContent = g.name;
     const cover = $('#gp-cover'), bg = $('#gp-bg');
-    if (cover.getAttribute('src') !== g.img) cover.src = g.img;
-    if (bg.getAttribute('src') !== g.img) bg.src = g.img;
+    const remote = media.icons[gameKey] || '', want = remote || g.img;
+    if (cover.getAttribute('src') !== want) { cover._queue = null; cover.dataset.fallbacks = remote ? g.img : ''; cover.src = want; }
+    if (bg.getAttribute('src') !== want) { bg._queue = null; bg.dataset.fallbacks = remote ? g.img : ''; bg.src = want; }
     cover.alt = g.name;
     cover.style.setProperty('--pos', g.pos);
     $('#gp-desc').textContent = t[g.desc];
@@ -2917,6 +3023,7 @@ window.NEOX_CONFIG = Object.freeze({
     if (g.dc) $('#gp-dc').href = safeHttps(g.dc);
     $('#gp-dc-off').hidden = !!g.dc;
     document.title = `${g.name} | NeoX Studio`;
+    renderStrip();
   }
   function renderSpark() {
     const pts = liveHistory[gameKey] || [];
@@ -3316,6 +3423,7 @@ window.NEOX_CONFIG = Object.freeze({
   renderStats();
   renderStatsNote();
   refreshStats();
+  mediaLoop();
   syncRoute(true);
 })();
 </script>
