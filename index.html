@@ -7,7 +7,7 @@
 
 <!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
      'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://thumbnails.roproxy.com https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://games.roproxy.com https://thumbnails.roproxy.com https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Anti-clickjacking: se o site for aberto dentro de um iframe de outro domínio, ele some e sai do quadro. -->
@@ -879,6 +879,14 @@ img,video{-webkit-user-drag:none;user-drag:none}
   .gp-backdrop img{ filter:none; transform:none; opacity:.1; }
   .ambient span{ animation:none; }
 }
+
+/* Mobile/toque: para animações contínuas que repintam a tela toda (maior ganho de fluidez) */
+@media (hover:none),(pointer:coarse),(max-width:820px){
+  body::after{ animation:none; will-change:auto; }
+  .hero-logo,.gp-cover,.dp-portrait,.fs-art,.contact-card::before,.contact-card::after,.community-icon,.grad,.hero h1 .grad,.fs-card::before,.game-card::before,.hero-cta .btn-primary,.btn-primary:not(.header-discord):not(:disabled){ animation:none; }
+  .js .team-card.is-active .team-avatar{ animation:none; }
+  .view-page.is-enter .gp-cover,.view-page.is-enter .dp-portrait{ animation:pop-in 1.3s var(--ease-back) backwards; }
+}
 </style>
 <noscript><style>html{display:block!important} #site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
 </head>
@@ -1577,8 +1585,10 @@ window.NEOX_CONFIG = Object.freeze({
     set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* modo privado */ } }
   };
   const debounce = (fn, wait = 150) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; };
+  /* Só abre links para estes sites (ou o próprio). Qualquer outro vira '#'. */
+  const LINK_HOSTS = new Set(['www.roblox.com', 'roblox.com', 'discord.gg', 'x.com']);
   const safeHttps = (u) => {
-    try { const x = new URL(u, location.href); return x.protocol === 'https:' ? x.href : '#'; }
+    try { const x = new URL(u, location.href); return x.protocol === 'https:' && (x.origin === location.origin || LINK_HOSTS.has(x.hostname)) ? x.href : '#'; }
     catch (e) { return '#'; }
   };
   const cleanLine = (s, max) => cleanText(String(s || '').replace(/[\r\n\u2028\u2029]+/g, ' '), max);
@@ -1904,13 +1914,12 @@ window.NEOX_CONFIG = Object.freeze({
   });
   const UNIVERSE_TO_KEY = Object.fromEntries(Object.entries(GAMES).map(([key, g]) => [g.universe, key]));
   const FIELDS = ['playing', 'visits', 'favorites', 'likes', 'dislikes'];
-  const FALLBACK_LIKES = { ap: { likes: 169 }, cr: { likes: 1645 }, ff: { likes: 4565 } };
   const NEOX_CONFIG = window.NEOX_CONFIG || {};
   const FORM_ENDPOINT = /^https:\/\/formsubmit\.co\/ajax\/[^\s]+$/.test(NEOX_CONFIG.formEndpoint || '') ? NEOX_CONFIG.formEndpoint : '';
   const LIVE_STATS_ENDPOINT = /^https:\/\//.test(NEOX_CONFIG.liveStatsEndpoint || '') ? NEOX_CONFIG.liveStatsEndpoint : '';
 
   const stats = {
-    games: Object.fromEntries(Object.keys(GAMES).map((k) => [k, { ...(FALLBACK_LIKES[k] || {}) }])),
+    games: Object.fromEntries(Object.keys(GAMES).map((k) => [k, {}])),
     meta: {}, updatedAt: 0, source: null, loaded: false, failed: false
   };
   // Atenção: NÃO chamar de "history" (isso escondia o window.history e quebrava a troca de endereço).
@@ -2060,6 +2069,7 @@ window.NEOX_CONFIG = Object.freeze({
   }
 
   /* ---------------- Segurança: links externos sempre com noopener ---------------- */
+  $$('a[href^="http"]').forEach((a) => { if (safeHttps(a.href) === '#') { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); } });
   $$('a[target="_blank"]').forEach((a) => {
     const rel = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
     rel.add('noopener'); rel.add('noreferrer');
@@ -2295,7 +2305,7 @@ window.NEOX_CONFIG = Object.freeze({
   (() => {
     const videos = $$('video.loop-video');
     if (!videos.length) return;
-    if (navigator.connection && navigator.connection.saveData) { videos.forEach(showVideoFallback); return; }
+    if (navigator.connection && (navigator.connection.saveData || /(^|-)2g$/.test(navigator.connection.effectiveType || ''))) { videos.forEach(showVideoFallback); return; }
 
     const prep = (v) => {
       v.controls = false; v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
@@ -2359,7 +2369,7 @@ window.NEOX_CONFIG = Object.freeze({
     if ('IntersectionObserver' in window) {
       const loader = new IntersectionObserver((entries) => {
         entries.forEach((en) => { if (en.isIntersecting) { wake(en.target); loader.unobserve(en.target); } });
-      }, { rootMargin: '700px 0px' });
+      }, { rootMargin: window.innerWidth < 768 ? '160px 0px' : '700px 0px' });
       const player = new IntersectionObserver((entries) => {
         entries.forEach((en) => { if (en.isIntersecting) { wake(en.target); play(en.target); } else en.target.pause(); });
       }, { threshold: 0.22 });
@@ -2443,12 +2453,18 @@ window.NEOX_CONFIG = Object.freeze({
       for (const f of FIELDS) { const v = num(incoming[f]); if (v !== null && v >= 0 && v <= 1e12) { target[f] = v; merged = true; } }
     }
     if (!merged) return false;
+    if (snap.meta && typeof snap.meta === 'object') {
+      for (const key of Object.keys(GAMES)) {
+        const m = snap.meta[key];
+        if (m && typeof m === 'object') stats.meta[key] = { genre: cleanText(m.genre, 40), maxPlayers: num(m.maxPlayers), updated: typeof m.updated === 'string' ? m.updated.slice(0, 40) : '' };
+      }
+    }
     const stamp = snap.updatedAt ? Date.parse(snap.updatedAt) : NaN;
     stats.updatedAt = Number.isFinite(stamp) && stamp > stats.updatedAt ? stamp : (stats.updatedAt || Date.now());
     stats.source = source;
     stats.loaded = true;
     stats.failed = false;
-    if (Date.now() - lastSave > 20000) { lastSave = Date.now(); store.set('neox-stats-v3', { updatedAt: new Date(stats.updatedAt).toISOString(), games: stats.games }); }
+    if (Date.now() - lastSave > 20000) { lastSave = Date.now(); store.set('neox-stats-v4', { updatedAt: new Date(stats.updatedAt).toISOString(), games: stats.games }); }
     if (source === 'live' && track) {
       lastLiveAt = Date.now();
       for (const k of Object.keys(GAMES)) {
@@ -2472,27 +2488,44 @@ window.NEOX_CONFIG = Object.freeze({
     if (!Object.keys(games).length) throw new Error('sem dados do Roblox');
     return { games, updatedAt: new Date().toISOString() };
   }
+  /* VOTES-START */
+  async function fetchVotes() {
+    const keys = Object.keys(GAMES);
+    const games = {};
+    try {
+      const data = await fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${keys.map((k) => GAMES[k].universe).join(',')}`, 6000);
+      for (const v of (data && data.data) || []) {
+        const key = UNIVERSE_TO_KEY[String(v && v.id)];
+        if (key && num(v.upVotes) !== null && num(v.downVotes) !== null) games[key] = { likes: num(v.upVotes), dislikes: num(v.downVotes) };
+      }
+    } catch (e) { /* tenta jogo a jogo */ }
+    const missing = keys.filter((k) => !games[k]);
+    if (missing.length) {
+      await Promise.allSettled(missing.map(async (k) => {
+        const v = await fetchJSON(`https://games.roproxy.com/v1/games/${GAMES[k].universe}/votes`, 6000);
+        if (num(v && v.upVotes) !== null && num(v && v.downVotes) !== null) games[k] = { likes: num(v.upVotes), dislikes: num(v.downVotes) };
+      }));
+    }
+    return games;
+  }
+  /* VOTES-END */
+  let votesFails = 0;
   async function refreshVotes() {
     if (votesBusy || LIVE_STATS_ENDPOINT) return;
     votesBusy = true;
     try {
-      const ids = Object.values(GAMES).map((g) => g.universe).join(',');
-      const data = await fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${ids}`, 6000);
-      const games = {};
-      for (const v of (data && data.data) || []) {
-        const key = UNIVERSE_TO_KEY[String(v.id)];
-        if (key) games[key] = { likes: num(v.upVotes), dislikes: num(v.downVotes) };
-      }
-      votesTimer.at = Date.now();
-      if (Object.keys(games).length && applySnapshot({ games, updatedAt: new Date().toISOString() }, 'live', false)) renderStats();
+      const games = await fetchVotes();
+      if (Object.keys(games).length && applySnapshot({ games, updatedAt: new Date().toISOString() }, 'live', false)) { votesFails = 0; votesTimer.at = Date.now(); renderStats(); }
+      else throw new Error('sem votos');
     } catch (err) {
-      votesTimer.at = Date.now() - 45000;
+      votesFails = Math.min(votesFails + 1, 4);
+      votesTimer.at = Date.now() - 60000 + Math.min(300000, 20000 * Math.pow(2, votesFails));
     } finally { votesBusy = false; }
   }
 
   function renderStats() {
     let players = 0, likes = 0, favorites = 0, visits = 0;
-    let hp = false, hl = false, hf = false, hv = false;
+    let hp = false, hl = true, hf = false, hv = false, lkMissing = false;
     for (const key of Object.keys(GAMES)) {
       const g = stats.games[key] || {};
       const playing = num(g.playing), vis = num(g.visits), fav = num(g.favorites), lk = num(g.likes);
@@ -2503,10 +2536,10 @@ window.NEOX_CONFIG = Object.freeze({
       if (playing !== null) { players += playing; hp = true; }
       if (vis !== null) { visits += vis; hv = true; }
       if (fav !== null) { favorites += fav; hf = true; }
-      if (lk !== null) { likes += lk; hl = true; }
+      if (lk !== null) likes += lk; else hl = false, lkMissing = true;
     }
     setValue($('#stat-players'), hp ? players : null);
-    setValue($('#stat-likes'), hl ? likes : null);
+    setValue($('#stat-likes'), hl && !lkMissing ? likes : null);
     setValue($('#stat-favs'), hf ? favorites : null, true);
     setValue($('#stat-visits'), hv ? visits : null, true);
     const ap = stats.games.ap || {};
@@ -2537,7 +2570,7 @@ window.NEOX_CONFIG = Object.freeze({
         catch (err) { liveFails += 1; console.warn('[NeoX] Stats ao vivo falharam:', err.message || err); }
         if (snapshot && hasAnyData(snapshot)) applySnapshot(snapshot, 'live');
         if (!stats.loaded) {
-          const cached = store.get('neox-stats-v3');
+          const cached = store.get('neox-stats-v4');
           if (hasAnyData(cached)) applySnapshot(cached, 'cache');
         }
         stats.failed = !stats.loaded;
@@ -3309,6 +3342,7 @@ window.NEOX_CONFIG = Object.freeze({
       const email = cleanLine(fEmail.value, 120);
       const roblox = cleanLine(fRoblox.value, 60);
       const message = cleanText(fMsg.value, 2000);
+      if ((message.match(/https?:\/\//gi) || []).length > 2) { setStatus('error', t.send_error, 'is-error'); return; }
 
       fName.setCustomValidity(name.length < 2 ? t.name_short : '');
       fEmail.setCustomValidity(EMAIL_RE.test(email) ? '' : t.email_bad);
@@ -3358,7 +3392,7 @@ window.NEOX_CONFIG = Object.freeze({
     if (!loader) return;
     const bar = $('#loader-progress');
     const started = performance.now();
-    const minTime = 1300;
+    const minTime = 900;
     let done = false;
     const tick = (now) => {
       if (done) return;
