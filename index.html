@@ -7,7 +7,7 @@
 
 <!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
      'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://games.roproxy.com https://thumbnails.roproxy.com https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://games.roproxy.com https://thumbnails.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Anti-clickjacking: se o site for aberto dentro de um iframe de outro domínio, ele some e sai do quadro. -->
@@ -2429,6 +2429,8 @@ window.NEOX_CONFIG = Object.freeze({
 
   /* ---------------- Estatísticas Roblox ---------------- */
   const votesTimer = { at: 0 };
+  const ALLORIGINS = 'https://api.allorigins.win/raw?url=';
+  const JINA = 'https://r.jina.ai/';
   const POLL_MS = 20000, POLL_GAME_MS = 10000;
   let statsTimer = null, refreshing = false, liveFails = 0, lastSave = 0, votesBusy = false;
 
@@ -2439,6 +2441,18 @@ window.NEOX_CONFIG = Object.freeze({
       const response = await fetch(url, { signal: controller.signal, cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error('HTTP ' + response.status);
       return await response.json();
+    } finally { clearTimeout(timer); }
+  }
+  async function fetchJina(target, timeout = 12000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+    try {
+      const response = await fetch(JINA + target, { signal: controller.signal, cache: 'no-store', credentials: 'omit', headers: { Accept: 'text/plain' } });
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const text = await response.text();
+      const a = text.indexOf('{'), b = text.lastIndexOf('}');
+      if (a < 0 || b <= a) throw new Error('resposta inesperada');
+      return JSON.parse(text.slice(a, b + 1));
     } finally { clearTimeout(timer); }
   }
   const hasAnyData = (snap) => !!snap && !!snap.games && Object.values(snap.games).some((g) => g && FIELDS.some((f) => num(g[f]) !== null));
@@ -2491,20 +2505,27 @@ window.NEOX_CONFIG = Object.freeze({
   /* VOTES-START */
   async function fetchVotes() {
     const keys = Object.keys(GAMES);
+    const ids = keys.map((k) => GAMES[k].universe).join(',');
     const games = {};
-    try {
-      const data = await fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${keys.map((k) => GAMES[k].universe).join(',')}`, 6000);
+    const take = (data) => {
       for (const v of (data && data.data) || []) {
         const key = UNIVERSE_TO_KEY[String(v && v.id)];
         if (key && num(v.upVotes) !== null && num(v.downVotes) !== null) games[key] = { likes: num(v.upVotes), dislikes: num(v.downVotes) };
       }
-    } catch (e) { /* tenta jogo a jogo */ }
-    const missing = keys.filter((k) => !games[k]);
-    if (missing.length) {
-      await Promise.allSettled(missing.map(async (k) => {
+    };
+    try { take(await fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${ids}`, 6000)); } catch (e) { /* próximo */ }
+    const missing = () => keys.filter((k) => !games[k]);
+    if (missing().length) {
+      await Promise.allSettled(missing().map(async (k) => {
         const v = await fetchJSON(`https://games.roproxy.com/v1/games/${GAMES[k].universe}/votes`, 6000);
         if (num(v && v.upVotes) !== null && num(v && v.downVotes) !== null) games[k] = { likes: num(v.upVotes), dislikes: num(v.downVotes) };
       }));
+    }
+    if (missing().length) {
+      /* Último recurso (era o que funcionava antes): serviços intermediários, só para votos. */
+      const target = `https://games.roblox.com/v1/games/votes?universeIds=${ids}`;
+      try { take(await fetchJSON(ALLORIGINS + encodeURIComponent(target), 9000)); }
+      catch (e) { try { take(await fetchJina(target)); } catch (e2) { /* sem votos agora */ } }
     }
     return games;
   }
