@@ -24,11 +24,11 @@
 </script>
 
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#00e5ff">
+<meta name="theme-color" content="#020204">
 <meta name="format-detection" content="telephone=no">
 
 <title>NeoX Studio | Jogos no Roblox</title>
-<meta name="description" content="A NeoX faz jogos no Roblox para você entrar e se divertir. Conheça Anime Paradise, Anime Crash e FREE FIRE MAX.">
+<meta name="description" content="A NeoX Studio faz jogos no Roblox: Anime Paradise, Anime Crash e FREE FIRE MAX.">
 <meta name="author" content="NeoX Studio">
 <link rel="canonical" href="https://neoxinc.vercel.app/">
 <link rel="alternate" hreflang="pt-BR" href="https://neoxinc.vercel.app/">
@@ -37,22 +37,22 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NeoX Studio">
 <meta property="og:url" content="https://neoxinc.vercel.app/">
-<meta property="og:title" content="NeoX Studio | Play the Future">
-<meta property="og:description" content="Games with energy, colors, and fun. NeoX was born to break the monotony and craft unforgettable universes for our community.">
-<meta property="og:image" content="https://eosein.github.io/NeoX-Inc/assets/og-cover.png">
-<meta property="og:image:secure_url" content="https://eosein.github.io/NeoX-Inc/assets/og-cover.png">
+<meta property="og:title" content="NeoX Studio | Jogos no Roblox">
+<meta property="og:description" content="Estúdio de jogos no Roblox. Anime Paradise, Anime Crash e FREE FIRE MAX.">
+<meta property="og:image" content="https://neoxinc.vercel.app/assets/og-cover.png">
+<meta property="og:image:secure_url" content="https://neoxinc.vercel.app/assets/og-cover.png">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="622">
-<meta property="og:image:height" content="622">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:image:alt" content="NeoX Studio: jogos no Roblox">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@NeoX351459">
-<meta name="twitter:title" content="NeoX Studio | Play the Future">
-<meta name="twitter:description" content="Games with energy, colors, and fun. NeoX was born to break the monotony and craft unforgettable universes for our community.">
-<meta name="twitter:image" content="https://eosein.github.io/NeoX-Inc/assets/og-cover.png">
+<meta name="twitter:title" content="NeoX Studio | Jogos no Roblox">
+<meta name="twitter:description" content="Estúdio de jogos no Roblox. Anime Paradise, Anime Crash e FREE FIRE MAX.">
+<meta name="twitter:image" content="https://neoxinc.vercel.app/assets/og-cover.png">
 
 <link rel="icon" type="image/png" sizes="any" href="assets/neox-logo.png">
 <link rel="apple-touch-icon" href="assets/neox-logo.png">
@@ -79,7 +79,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/neox-logo.png" fetchpriority="high">
 <link rel="preconnect" href="https://games.roproxy.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link id="gf" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <style>
 /* NEOX STUDIO — preto (primária), ciano (secundária) e rosa (terciária, só em detalhes pontuais). */
@@ -166,11 +167,11 @@ main:focus{ outline:none; }
 .card-tilt{ transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px)); }
 
 /* ---------- Reveal (usa translate para não brigar com transform) ---------- */
-.js [data-reveal],.js .stagger > *{ opacity:0; translate:0 56px; scale:.94; filter:blur(8px); }
+.js [data-reveal],.js .stagger > *{ opacity:0; translate:0 56px; scale:.94;  }
 .js [data-reveal="left"]{ translate:-90px 0; }
 .js [data-reveal="right"]{ translate:90px 0; }
 .js [data-reveal="zoom"]{ translate:0 44px; scale:.9; }
-.js [data-reveal="sm"]{ translate:0 24px; scale:1; filter:blur(4px); }
+.js [data-reveal="sm"]{ translate:0 24px; scale:1;  }
 .js [data-reveal="flip"]{ translate:0 70px; scale:.9; rotate:x 38deg; transform-origin:50% 100%; }
 .js [data-reveal]{
   transition:opacity 1.1s var(--ease) var(--d,0ms), translate 1.2s var(--ease) var(--d,0ms), scale 1.2s var(--ease) var(--d,0ms), rotate 1.3s var(--ease) var(--d,0ms), filter 1.1s var(--ease) var(--d,0ms), transform .7s var(--ease), border-color .5s ease, background-color .5s ease, box-shadow .6s ease;
@@ -290,7 +291,7 @@ main,.view-page,.site-footer{ position:relative; z-index:1; }
 .rot{ display:inline-block; overflow:hidden; vertical-align:bottom; height:1.4em; line-height:1.4; padding:0 .1em; }
 .rot-word{ display:inline-block; color:var(--accent); font-weight:800; text-shadow:0 0 18px rgba(111,220,236,.25); }
 .rot-in{ animation:rot-in .8s var(--ease-back) both; }
-@keyframes rot-in{ from{ transform:translateY(110%) rotate(6deg); opacity:0; filter:blur(6px); } to{ transform:none; opacity:1; filter:none; } }
+@keyframes rot-in{ from{ transform:translateY(110%) rotate(6deg); opacity:0;  } to{ transform:none; opacity:1; filter:none; } }
 .hero-sub{ max-width:600px; color:var(--muted); font-size:clamp(.98rem,2vw,1.14rem); text-wrap:pretty; }
 .hero-cta{ display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; padding-top:.3rem; }
 .hero-cta .btn{ min-width:170px; }
@@ -298,7 +299,7 @@ main,.view-page,.site-footer{ position:relative; z-index:1; }
 .hero-scroll span{ position:relative; display:block; width:1px; height:40px; background:linear-gradient(180deg,var(--accent),transparent); }
 .hero-scroll span::after{ content:""; position:absolute; left:-2px; top:-4px; width:5px; height:5px; border-radius:50%; background:var(--soft); box-shadow:0 0 8px rgba(255,255,255,0.25); animation:scroll-dot 2.2s ease-in-out infinite; }
 @keyframes scroll-dot{ 0%{ transform:translateY(0); opacity:0; } 15%,85%{ opacity:1; } 100%{ transform:translateY(40px); opacity:0; } }
-@keyframes fade-up{ from{ opacity:0; transform:translateY(36px); filter:blur(6px); } to{ opacity:1; transform:none; filter:none; } }
+@keyframes fade-up{ from{ opacity:0; transform:translateY(36px);  } to{ opacity:1; transform:none; filter:none; } }
 .intro{ animation:fade-up 1.2s var(--ease) backwards; animation-delay:calc(var(--i,0) * 130ms + 120ms); }
 html.is-loading .intro,html.is-loading .ambient span{ animation-play-state:paused; }
 
@@ -554,7 +555,7 @@ html.is-traveling #scroll-progress{ height:4px; box-shadow:0 0 14px rgba(111,220
 #site-loader.is-done{ opacity:0; visibility:hidden; pointer-events:none; }
 .loader-inner{ display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center; animation:loader-pop .9s var(--ease) backwards; transition:transform .8s var(--ease), opacity .6s ease; }
 #site-loader.is-done .loader-inner{ transform:scale(1.06); opacity:0; }
-@keyframes loader-pop{ from{ opacity:0; transform:translateY(8px); filter:blur(6px); } }
+@keyframes loader-pop{ from{ opacity:0; transform:translateY(8px);  } }
 .loader-word{ font-size:clamp(46px,7vw,64px); font-weight:800; letter-spacing:-.05em; line-height:1; color:#fff; text-shadow:0 0 18px rgba(111,220,236,.55), 0 0 2px rgba(255,255,255,.5); }
 .loader-line{ width:150px; height:2px; border-radius:2px; background:rgba(111,220,236,.14); overflow:hidden; }
 .loader-line span{ display:block; height:100%; width:0; background:var(--accent); box-shadow:0 0 8px rgba(111,220,236,.6); transition:width .25s linear; }
@@ -587,7 +588,7 @@ html.has-nx-cursor .nx-cursor{ display:block; }
 @keyframes float{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-10px) rotate(1.5deg); } }
 .hero-logo{ animation:float 5s ease-in-out infinite; }
 .hero-logo-wrap.intro{ animation-name:pop-in; animation-duration:1.5s; animation-timing-function:var(--ease-back); }
-@keyframes pop-in{ from{ opacity:0; transform:scale(.3) rotate(-25deg); filter:blur(12px); } }
+@keyframes pop-in{ from{ opacity:0; transform:scale(.3) rotate(-25deg);  } }
 .btn{ overflow:hidden; }
 .btn::after{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%); transform:translateX(-120%); transition:transform .9s var(--ease); }
 .btn-primary::after{ background:linear-gradient(110deg,transparent 30%,rgba(0,0,0,.12) 50%,transparent 70%); }
@@ -645,9 +646,9 @@ html.is-loading .site-header{ animation-play-state:paused; }
   50%{ box-shadow:0 14px 44px -10px rgba(111,220,236,.35); }
 }
 
-.js .game-media img{ filter:blur(12px); scale:1.14; transition:filter 1.4s var(--ease), scale 1.6s var(--ease), transform 1.1s var(--ease); }
+.js .game-media img{  scale:1.14; transition:filter 1.4s var(--ease), scale 1.6s var(--ease), transform 1.1s var(--ease); }
 .js .game-card.is-in .game-media img{ filter:none; scale:1; }
-.js .media-frame img{ filter:blur(10px); scale:1.1; transition:filter 1.3s var(--ease), scale 1.5s var(--ease), transform 1.1s var(--ease); }
+.js .media-frame img{  scale:1.1; transition:filter 1.3s var(--ease), scale 1.5s var(--ease), transform 1.1s var(--ease); }
 .js .stagger.is-in .media-frame img{ filter:none; scale:1; }
 
 .ambient{ translate:0 calc(var(--py,0) * 1px); }
@@ -718,7 +719,7 @@ html.is-loading .main-nav .nav-link,html.is-loading .header-actions > *{ animati
 @keyframes btn-sheen{ 0%,70%{ background-position:100% 0; } 100%{ background-position:-100% 0; } }
 .hero-cta .btn-primary{ animation:glow-soft 3.6s ease-in-out infinite, btn-sheen 5s ease-in-out infinite; }
 .hero h1 .grad{ display:inline-block; animation:shine 6s ease-in-out infinite alternate, grad-in 1.5s var(--ease) .9s backwards; }
-@keyframes grad-in{ from{ opacity:0; transform:translateY(40px) scale(.96); filter:blur(10px); } }
+@keyframes grad-in{ from{ opacity:0; transform:translateY(40px) scale(.96);  } }
 html.is-loading .hero h1 .grad{ animation-play-state:paused; }
 
 .gp-backdrop img{ animation:kenburns 18s ease-in-out infinite alternate; }
@@ -800,8 +801,6 @@ html.is-loading .hero h1 .grad{ animation-play-state:paused; }
 /* Cabeçalho de seção: eyebrow, título, texto entram em cascata */
 .js .section-head[data-reveal] > *{ opacity:0; translate:0 26px; transition:opacity 1s var(--ease), translate 1s var(--ease), filter 1.2s var(--ease), letter-spacing 1.5s var(--ease); transition-delay:calc(var(--c,0) * 130ms + 150ms); }
 .js .section-head.is-in > *{ opacity:1; translate:none; }
-.js .section-head[data-reveal] > .section-title{ filter:blur(8px); letter-spacing:.02em; }
-.js .section-head.is-in > .section-title{ filter:none; letter-spacing:-.03em; }
 .section-head > :nth-child(2){ --c:1; } .section-head > :nth-child(3){ --c:2; } .section-head > :nth-child(4){ --c:3; } .section-head > :nth-child(5){ --c:4; }
 
 /* Ao clicar numa categoria: o conteúdo da seção "chega" em sequência */
@@ -816,7 +815,7 @@ html.is-loading .hero h1 .grad{ animation-play-state:paused; }
 @keyframes nav-pop{ 0%{ transform:translateY(0) } 40%{ transform:translateY(-4px) } 100%{ transform:translateY(0) } }
 
 /* Título do hero entra com desfoque */
-@keyframes fade-blur{ from{ opacity:0; transform:translateY(30px); filter:blur(12px); } to{ opacity:1; transform:none; filter:none; } }
+@keyframes fade-blur{ from{ opacity:0; transform:translateY(30px);  } to{ opacity:1; transform:none; filter:none; } }
 .hero h1.intro{ animation-name:fade-blur; }
 
 /* Ripple dos botões */
@@ -887,6 +886,18 @@ img,video{-webkit-user-drag:none;user-drag:none}
   .js .team-card.is-active .team-avatar{ animation:none; }
   .view-page.is-enter .gp-cover,.view-page.is-enter .dp-portrait{ animation:pop-in 1.3s var(--ease-back) backwards; }
 }
+
+/* Desempenho: sem animações que repintam a tela a cada quadro */
+.grad,.hero h1 .grad,.site-header::after,.game-card::before,.fs-card::before,.game-card::after,.section::before,.js .team-card.is-active .team-avatar,.nav-link.is-active{ animation:none; }
+.btn-primary:not(.header-discord):not(:disabled),.hero-cta .btn-primary,.header-discord{ animation:none; }
+@media (hover:hover){ .game-card:hover::after{ animation:ang-spin 3.6s linear infinite; } }
+.hero::before{ display:none; }
+/* Faixas infinitas: só CSS (roda fora da thread principal) */
+.marquee-track{ animation:mq var(--md,40s) linear infinite; }
+.marquee[data-dir="1"] .marquee-track{ animation-direction:reverse; }
+.marquee:not(.is-on) .marquee-track{ animation-play-state:paused; }
+@keyframes mq{ from{ transform:translate3d(0,0,0); } to{ transform:translate3d(calc(var(--mw,0px) * -1),0,0); } }
+@media (prefers-reduced-motion:reduce){ .marquee-track{ animation:none; } }
 </style>
 <noscript><style>html{display:block!important} #site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
 </head>
@@ -910,6 +921,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
       document.body.removeAttribute('aria-busy');
     }
   }, 5000);
+  (function () { var l = document.getElementById('gf'); if (!l) return; var on = function () { l.media = 'all'; }; if (l.sheet) on(); else l.addEventListener('load', on); setTimeout(on, 3000); })();
 </script>
 
 <div id="scroll-progress" aria-hidden="true"></div>
@@ -939,12 +951,12 @@ img,video{-webkit-user-drag:none;user-drag:none}
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="site-header">
   <div class="container header-inner">
-    <a href="#home" class="brand" aria-label="NeoX Studio — início">
+    <a href="#home" class="brand" aria-label="NeoX Studio — início" data-i18n-aria="brand_aria">
       <img class="brand-logo" src="assets/neox-logo.png" alt="NeoX Studio" width="40" height="40">
       <span class="brand-name">NEOX<span> STUDIO</span></span>
     </a>
 
-    <nav class="main-nav" aria-label="Principal">
+    <nav class="main-nav" aria-label="Principal" data-i18n-aria="nav_main">
       <a href="#home" class="nav-link" data-i18n="nav_home">Home</a>
       <a href="#about" class="nav-link" data-i18n="nav_about">Sobre</a>
       <a href="#games" class="nav-link" data-i18n="nav_games">Jogos</a>
@@ -970,7 +982,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
 </header>
 
 <!-- Menu mobile: fora do header para o position:fixed não ficar preso ao backdrop-filter -->
-<nav id="mobile-menu" class="mobile-nav" aria-label="Menu mobile" aria-hidden="true" inert>
+<nav id="mobile-menu" class="mobile-nav" aria-label="Menu mobile" data-i18n-aria="nav_mobile" aria-hidden="true" inert>
   <a href="#home" data-i18n="nav_home">Home</a>
   <a href="#about" data-i18n="nav_about">Sobre</a>
   <a href="#games" data-i18n="nav_games">Jogos</a>
@@ -995,7 +1007,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
 
     <div class="container hero-inner">
       <div class="hero-logo-wrap intro" style="--i:0">
-        <img class="hero-logo" src="assets/neox-logo.png" alt="Logo da NeoX Studio" width="96" height="96" fetchpriority="high">
+        <img class="hero-logo" src="assets/neox-logo.png" alt="Logo da NeoX Studio" data-i18n-alt="logo_alt" width="96" height="96" fetchpriority="high">
       </div>
 
       <div class="hero-badge intro" style="--i:1">
@@ -1007,8 +1019,6 @@ img,video{-webkit-user-drag:none;user-drag:none}
         <span data-i18n="hero_title_1">Feitos para jogar,</span><br>
         <span class="grad" data-i18n="hero_title_2">difíceis de largar.</span>
       </h1>
-
-      <p class="hero-rot intro" style="--i:3"><span data-i18n="rot_pre">Jogos cheios de</span> <span class="rot"><span class="rot-word" id="rot-word">anime</span></span></p>
 
       <p class="hero-sub intro" style="--i:4" data-i18n="hero_desc">
         A NeoX faz jogos no Roblox para você abrir, explorar e se divertir. Sem cadastro e sem enrolação: é só entrar e jogar.
@@ -1048,7 +1058,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
   <div class="marquee" aria-hidden="true" data-dir="-1">
     <div class="marquee-track">
       <div class="marquee-group">
-        <b>Anime Paradise</b><i></i><b>Anime Crash</b><i></i><b>Free Fire Max</b><i></i><b>Roblox</b><i></i><b>NeoX Studio</b><i></i><b>Jogue o Futuro</b><i></i><b>Comunidade</b><i></i>
+        <b>Anime Paradise</b><i></i><b>Anime Crash</b><i></i><b>Free Fire Max</b><i></i><b>NeoX Studio</b><i></i><b>Roblox</b><i></i>
       </div>
     </div>
   </div>
@@ -1107,9 +1117,10 @@ img,video{-webkit-user-drag:none;user-drag:none}
           <h3 data-i18n="about_box_title">Feito nos detalhes</h3>
           <p data-i18n="about_box_desc">UI, Luau, animação e modelagem.</p>
           <div class="about-tags">
-            <span data-i18n="tech_ui">UI Design</span>
-            <span>Luau</span>
-            <span data-i18n="tech_model">Modelagem</span>
+            <span data-i18n="tech_ui">UI/UX</span>
+            <span data-i18n="tech_anim">Animação</span>
+            <span data-i18n="tech_model">Modelagem 3D</span>
+            <span data-i18n="tech_vfx">VFX</span>
           </div>
         </aside>
       </div>
@@ -1146,7 +1157,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
   <div class="marquee" aria-hidden="true" data-dir="1">
     <div class="marquee-track">
       <div class="marquee-group">
-        <b>NeoX Studio</b><i></i><b>Jogue Agora</b><i></i><b>Anime Paradise</b><i></i><b>Anime Crash</b><i></i><b>Free Fire Max</b><i></i>
+        <b>NeoX Studio</b><i></i><b>Neo X Inc</b><i></i><b>Anime Paradise</b><i></i><b>Anime Crash</b><i></i>
       </div>
     </div>
   </div>
@@ -1245,7 +1256,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
   <div class="marquee" aria-hidden="true" data-dir="1">
     <div class="marquee-track">
       <div class="marquee-group">
-        <b>Jogue Agora</b><i></i><b>Novos Updates</b><i></i><b>Batalhas</b><i></i><b>Eventos</b><i></i><b>Feito por Players</b><i></i><b>Anime</b><i></i><b>Diversão</b><i></i>
+        <b>Roblox</b><i></i><b>Discord</b><i></i><b>Neo X Inc</b><i></i><b>Free Fire Max</b><i></i>
       </div>
     </div>
   </div>
@@ -1266,7 +1277,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
         <div class="media-grid stagger" data-stagger>
           <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Crash — combate e movimentação">
+              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Crash — combate e movimentação" data-i18n-aria="v_ac_1">
                 <source src="assets/anime-crash-gameplay.mp4#t=0.001" type="video/mp4">
               </video>
             </div>
@@ -1274,13 +1285,13 @@ img,video{-webkit-user-drag:none;user-drag:none}
           </article>
           <article class="media-card">
             <div class="media-frame">
-              <img src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
+              <img src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" data-i18n-alt="alt_ac_2" width="640" height="360" loading="lazy" decoding="async">
             </div>
             <div class="media-caption"><h4 data-i18n="ac_2_title">Missões & Recompensas</h4></div>
           </article>
           <article class="media-card">
             <div class="media-frame">
-              <img src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
+              <img src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" data-i18n-alt="alt_ac_3" width="640" height="360" loading="lazy" decoding="async">
             </div>
             <div class="media-caption"><h4 data-i18n="ac_3_title">Árvore de Habilidades</h4></div>
           </article>
@@ -1294,7 +1305,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
         <div class="media-grid stagger" data-stagger>
           <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — cinemática e interface">
+              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — cinemática e interface" data-i18n-aria="v_ap_1">
                 <source src="assets/anime-paradise-cutscene-ui.mp4#t=0.001" type="video/mp4">
               </video>
             </div>
@@ -1302,7 +1313,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
           </article>
           <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação">
+              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação" data-i18n-aria="v_ap_2">
                 <source src="assets/anime-paradise-movement.mp4#t=0.001" type="video/mp4">
               </video>
             </div>
@@ -1310,7 +1321,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
           </article>
           <article class="media-card">
             <div class="media-frame">
-              <img src="assets/anime-paradise-models.png" data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png" alt="Modelos de Anime Paradise" width="640" height="360" loading="lazy" decoding="async">
+              <img src="assets/anime-paradise-models.png" data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png" alt="Modelos de Anime Paradise" data-i18n-alt="alt_ap_models" width="640" height="360" loading="lazy" decoding="async">
             </div>
             <div class="media-caption"><h4 data-i18n="media_models">Modelos</h4></div>
           </article>
@@ -1323,7 +1334,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
   <div class="marquee" aria-hidden="true" data-dir="-1">
     <div class="marquee-track">
       <div class="marquee-group">
-        <b>Veja em movimento</b><i></i><b>Gameplay</b><i></i><b>Bastidores</b><i></i><b>Trailers</b><i></i><b>NeoX Studio</b><i></i>
+        <b>Gameplay</b><i></i><b>Trailers</b><i></i><b>Anime Paradise</b><i></i><b>Anime Crash</b><i></i>
       </div>
     </div>
   </div>
@@ -1508,7 +1519,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
       </section>
     </div>
 
-    <nav class="dp-pager va" style="--i:8" aria-label="Navegar entre perfis">
+    <nav class="dp-pager va" style="--i:8" aria-label="Navegar entre perfis" data-i18n-aria="dev_pager">
       <a id="dp-prev" class="dp-step"><small data-i18n="dev_prev">Anterior</small><strong id="dp-prev-name"></strong></a>
       <a id="dp-next" class="dp-step is-next"><small data-i18n="dev_next">Próximo</small><strong id="dp-next-name"></strong></a>
     </nav>
@@ -1535,7 +1546,7 @@ window.NEOX_CONFIG = Object.freeze({
       <img src="assets/neox-logo.png" alt="" width="36" height="36">
       <strong>NeoX Studio</strong>
     </div>
-    <nav class="footer-links" aria-label="Links do rodapé">
+    <nav class="footer-links" aria-label="Links do rodapé" data-i18n-aria="footer_nav">
       <a href="#home" data-i18n="nav_home">Home</a>
       <a href="#games" data-i18n="nav_games">Jogos</a>
       <a href="#team" data-i18n="nav_team">Equipe</a>
@@ -1635,112 +1646,112 @@ window.NEOX_CONFIG = Object.freeze({
       slug: 'sasadev', name: 'SasaDev', initials: 'SD', img: 'assets/sasa.png', role: 'role_owner',
       roblox: 'https://www.roblox.com/users/5790284269/profile',
       pt: {
-        tag: 'Comanda e gerencia tudo.',
-        bio: 'Dono da NeoX Studio. Define o rumo do estúdio, toma as decisões finais dos projetos e cuida da gestão da equipe, das parcerias e da comunidade.',
-        duties: ['Direção geral do estúdio', 'Decisão final em cada projeto', 'Gestão da equipe e das parcerias', 'Visão de longo prazo da NeoX']
+        tag: 'Dono da NeoX.',
+        bio: 'Dono do grupo Neo X Inc e do estúdio. Decide o rumo dos projetos.',
+        duties: ['Direção do estúdio', 'Decisões dos projetos', 'Gestão da equipe']
       },
       en: {
-        tag: 'Runs and manages everything.',
-        bio: 'Owner of NeoX Studio. Sets the studio direction, makes the final calls on projects and looks after the team, partnerships and community.',
-        duties: ['Overall studio direction', 'Final say on every project', 'Team and partnership management', 'Long-term vision for NeoX']
+        tag: 'Owner of NeoX.',
+        bio: 'Owner of the Neo X Inc group and the studio. Decides the direction of the projects.',
+        duties: ['Studio direction', 'Project decisions', 'Team management']
       }
     },
     {
       slug: 'davidev', name: 'DaviDev', initials: 'DD', img: 'assets/davi.png', role: 'role_coowner_gd',
       roblox: 'https://www.roblox.com/users/1213557895/profile',
       pt: {
-        tag: 'Ajuda a comandar e desenha como os jogos funcionam.',
-        bio: 'Co-dono da NeoX. Divide a gestão do estúdio com o Owner e, como Game Designer, pensa mecânicas, progressão e o equilíbrio do que o jogador vive dentro dos jogos.',
-        duties: ['Co-gestão do estúdio', 'Mecânicas e sistemas de gameplay', 'Progressão e balanceamento', 'Ideias para novos jogos e updates']
+        tag: 'Co-dono e game designer.',
+        bio: 'Co-dono da NeoX e game designer. Cuida das mecânicas e da progressão dos jogos.',
+        duties: ['Gestão do estúdio junto com o Owner', 'Mecânicas e sistemas', 'Progressão e balanceamento']
       },
       en: {
-        tag: 'Helps run the studio and designs how games work.',
-        bio: 'Co-Owner of NeoX. Shares the studio management with the Owner and, as Game Designer, shapes mechanics, progression and the balance of what players experience.',
-        duties: ['Co-managing the studio', 'Gameplay mechanics and systems', 'Progression and balancing', 'Ideas for new games and updates']
+        tag: 'Co-owner and game designer.',
+        bio: 'Co-owner of NeoX and game designer. Handles game mechanics and progression.',
+        duties: ['Studio management with the Owner', 'Mechanics and systems', 'Progression and balancing']
       }
     },
     {
       slug: 'osein', name: 'oSein', initials: 'OS', img: 'assets/osein.png', role: 'role_gd',
       roblox: 'https://www.roblox.com/users/4565735367/profile',
       pt: {
-        tag: 'Transforma ideias em sistemas jogáveis.',
-        bio: 'Game Designer da equipe. Pensa a experiência do jogador: como o jogo ensina, recompensa e prende a atenção, ajustando os detalhes até a jogabilidade ficar redonda.',
-        duties: ['Design de mecânicas e sistemas', 'Missões e recompensas', 'Testes e ajustes de balanceamento', 'Feedback da comunidade nas decisões']
+        tag: 'Game designer.',
+        bio: 'Game designer da equipe. Trabalha nas mecânicas, missões e recompensas.',
+        duties: ['Mecânicas e sistemas', 'Missões e recompensas', 'Testes e ajustes']
       },
       en: {
-        tag: 'Turns ideas into playable systems.',
-        bio: 'Game Designer on the team. Thinks about the player experience: how the game teaches, rewards and keeps attention, tuning the details until gameplay feels right.',
-        duties: ['Mechanics and systems design', 'Quests and rewards', 'Playtests and balance tuning', 'Community feedback in decisions']
+        tag: 'Game designer.',
+        bio: 'Game designer on the team. Works on mechanics, missions and rewards.',
+        duties: ['Mechanics and systems', 'Missions and rewards', 'Testing and tuning']
       }
     },
     {
       slug: 'slow', name: 'Slow', initials: 'SL', img: 'assets/slow.png', role: 'role_animator',
       roblox: 'https://www.roblox.com/users/2620031389/profile',
       pt: {
-        tag: 'Dá vida a personagens e golpes.',
-        bio: 'Animador da NeoX. Cria as animações de personagens, ataques e movimentação para que cada ação tenha peso e fique fluida na tela.',
-        duties: ['Animações de combate e golpes', 'Movimentação e poses', 'Cutscenes e cinemáticas', 'Timing que deixa o jogo responsivo']
+        tag: 'Animador.',
+        bio: 'Faz as animações de personagens, golpes e movimentação.',
+        duties: ['Animações de combate', 'Movimentação', 'Cutscenes']
       },
       en: {
-        tag: 'Brings characters and attacks to life.',
-        bio: 'Animator at NeoX. Creates character, attack and movement animations so every action feels weighty and smooth on screen.',
-        duties: ['Combat and attack animations', 'Movement and poses', 'Cutscenes and cinematics', 'Timing that keeps the game responsive']
+        tag: 'Animator.',
+        bio: 'Makes character, attack and movement animations.',
+        duties: ['Combat animations', 'Movement', 'Cutscenes']
       }
     },
     {
       slug: 'flex', name: 'Flex', initials: 'FX', img: 'assets/flex.png', role: 'role_modeler',
       roblox: 'https://www.roblox.com/users/2362898887/profile',
       pt: {
-        tag: 'Constrói o visual 3D dos mundos.',
-        bio: 'Modelador 3D. Cria personagens, itens e cenários que formam a identidade visual dos jogos da NeoX.',
-        duties: ['Modelagem 3D de personagens e itens', 'Cenários e props', 'Otimização para rodar bem no Roblox', 'Padrão visual entre os jogos']
+        tag: 'Modelador 3D.',
+        bio: 'Faz os modelos 3D de personagens, itens e cenários.',
+        duties: ['Personagens e itens', 'Cenários', 'Otimização para o Roblox']
       },
       en: {
-        tag: 'Builds the 3D look of the worlds.',
-        bio: '3D Modeler. Creates the characters, items and environments that make up the visual identity of NeoX games.',
-        duties: ['3D modeling of characters and items', 'Environments and props', 'Optimization to run well on Roblox', 'Visual consistency across games']
+        tag: '3D modeler.',
+        bio: 'Makes the 3D models for characters, items and environments.',
+        duties: ['Characters and items', 'Environments', 'Optimization for Roblox']
       }
     },
     {
       slug: 'ogust', name: 'Ogust', initials: 'OG', img: 'assets/oguest.png', role: 'role_vfx',
       roblox: 'https://www.roblox.com/users/8093384811/profile',
       pt: {
-        tag: 'Cuida do brilho, do impacto e da energia.',
-        bio: 'VFX Maker. Cria os efeitos visuais, como golpes, habilidades e partículas, que dão impacto e clareza a cada ação do jogo.',
-        duties: ['Efeitos de habilidades e golpes', 'Partículas e brilhos', 'Feedback visual de acertos e recompensas', 'Desempenho dos efeitos']
+        tag: 'VFX maker.',
+        bio: 'Faz os efeitos visuais de habilidades e golpes.',
+        duties: ['Efeitos de habilidades', 'Partículas', 'Desempenho dos efeitos']
       },
       en: {
-        tag: 'Handles the glow, the impact and the energy.',
-        bio: 'VFX Maker. Creates the visual effects, like attacks, abilities and particles, that give impact and clarity to every action in the game.',
-        duties: ['Ability and attack effects', 'Particles and glow', 'Visual feedback for hits and rewards', 'Effect performance']
+        tag: 'VFX maker.',
+        bio: 'Makes the visual effects for abilities and attacks.',
+        duties: ['Ability effects', 'Particles', 'Effect performance']
       }
     },
     {
       slug: 'reject', name: 'Reject', initials: 'RJ', img: 'assets/reject.png', role: 'role_ui',
       roblox: 'https://www.roblox.com/pt/users/1569820932/profile',
       pt: {
-        tag: 'Deixa tudo claro de usar.',
-        bio: 'UI/UX Maker. Desenha menus, HUD e telas para que o jogador encontre o que precisa rápido, com um visual limpo e consistente.',
-        duties: ['Interfaces e menus', 'HUD durante o jogo', 'Fluxo e usabilidade', 'Consistência visual']
+        tag: 'UI/UX maker.',
+        bio: 'Desenha menus, HUD e telas dos jogos.',
+        duties: ['Menus e interfaces', 'HUD', 'Usabilidade']
       },
       en: {
-        tag: 'Makes everything clear to use.',
-        bio: 'UI/UX Maker. Designs menus, HUD and screens so players find what they need fast, with a clean and consistent look.',
-        duties: ['Interfaces and menus', 'In-game HUD', 'Flow and usability', 'Visual consistency']
+        tag: 'UI/UX maker.',
+        bio: 'Designs the menus, HUD and screens of the games.',
+        duties: ['Menus and interfaces', 'HUD', 'Usability']
       }
     },
     {
       slug: 'moon', name: 'Moon', initials: 'MN', img: 'assets/moon.png', role: 'role_cm',
       roblox: 'https://www.roblox.com/users/1587723048/profile',
       pt: {
-        tag: 'A ponte entre o estúdio e os jogadores.',
-        bio: 'Community Manager. Cuida do Discord e do grupo, conversa com os jogadores, reúne feedback e divulga as novidades.',
-        duties: ['Moderação do Discord e do grupo', 'Comunicação de updates e eventos', 'Coleta de feedback e sugestões', 'Apoio e dúvidas dos jogadores']
+        tag: 'Community manager.',
+        bio: 'Cuida da comunidade no Discord e no grupo do Roblox.',
+        duties: ['Moderação', 'Avisos de atualizações', 'Feedback e dúvidas dos jogadores']
       },
       en: {
-        tag: 'The bridge between the studio and the players.',
-        bio: 'Community Manager. Looks after the Discord and the group, talks with players, gathers feedback and shares the news.',
-        duties: ['Discord and group moderation', 'Update and event announcements', 'Feedback and suggestion collection', 'Player support and questions']
+        tag: 'Community manager.',
+        bio: 'Looks after the community on Discord and in the Roblox group.',
+        duties: ['Moderation', 'Update announcements', 'Player feedback and questions']
       }
     }
   ]);
@@ -1749,39 +1760,39 @@ window.NEOX_CONFIG = Object.freeze({
   const i18n = {
     pt: {
       skip: 'Pular para o conteúdo', loading: 'Carregando…',
-      nav_home: 'Home', nav_about: 'Sobre', nav_games: 'Jogos', nav_media: 'Trailers', nav_team: 'Equipe', nav_contact: 'Contato',
-      hero_tag: 'Feito por gente que joga',
-      hero_title_1: 'Feitos para jogar,', hero_title_2: 'difíceis de largar.',
+      tech_anim: 'Animação', tech_vfx: 'VFX', meta_desc: 'A NeoX Studio faz jogos no Roblox: Anime Paradise, Anime Crash e FREE FIRE MAX.', logo_alt: 'Logo da NeoX Studio', brand_aria: 'NeoX Studio — início', nav_main: 'Principal', nav_mobile: 'Menu mobile', footer_nav: 'Links do rodapé', dev_pager: 'Navegar entre perfis', v_ac_1: 'Anime Crash — combate e movimentação', v_ap_1: 'Anime Paradise — cinemática e interface', v_ap_2: 'Anime Paradise — movimentação', alt_ac_2: 'Missões e recompensas de Anime Crash', alt_ac_3: 'Árvore de habilidades de Anime Crash', alt_ap_models: 'Modelos de Anime Paradise', team_role: 'carrossel', nav_home: 'Home', nav_about: 'Sobre', nav_games: 'Jogos', nav_media: 'Trailers', nav_team: 'Equipe', nav_contact: 'Contato',
+      hero_tag: 'Estúdio de jogos no Roblox',
+      hero_title_1: 'Fazemos jogos', hero_title_2: 'no Roblox.',
       rot_pre: 'Jogos cheios de', rot_words: ['anime', 'ação', 'aventura', 'sobrevivência', 'diversão'],
-      hero_desc: 'A NeoX faz jogos no Roblox para você abrir, explorar e se divertir. Sem cadastro e sem enrolação: é só entrar e jogar.',
+      hero_desc: 'O Anime Paradise já está no Roblox. O Anime Crash chega em breve.',
       btn_explore: 'Ver os jogos',
       stat_1: 'Jogando agora', stat_2: 'Curtidas', stat_3: 'Favoritos', stat_4: 'Visitas',
       stats_region: 'Estatísticas NeoX Studio',
-      about_tag: 'Quem somos', about_title: 'A gente leva a diversão a sério.',
-      about_desc: 'A NeoX começou com uma ideia simples: fazer jogos que dão vontade de ficar. Cada mapa, animação e detalhe passa pela mão da nossa equipe — e pela opinião de quem joga.',
-      feat_1_title: 'Gameplay que responde', feat_1_desc: 'Controle preciso, sem travar.',
-      feat_2_title: 'Gente de verdade', feat_2_desc: 'A comunidade ajuda a decidir o próximo passo.',
-      feat_3_title: 'Sempre tem novidade', feat_3_desc: 'Atualizações frequentes, sem promessa vazia.',
-      about_box_title: 'Feito nos detalhes',
-      about_box_desc: 'UI, Luau, animação e modelagem: cada parte passa pela mão de alguém da equipe. O resultado parece simples — porque o trabalho pesado fica nos bastidores.',
-      tech_ui: 'UI Design', tech_model: 'Modelagem',
-      community_tag: 'Onde a gente se encontra', community_title: 'Entra na conversa',
-      group_title: 'Grupo Neo X Inc', group_desc: 'Novidades, testes e avisos direto no Roblox.',
-      dc_title: 'Discord da Comunidade', dc_desc: 'Bastidores, dúvidas e aquele papo de comunidade.',
-      games_tag: 'Escolha um e joga', games_title: 'Nossos Jogos',
-      games_subtitle: 'Cada um tem um clima diferente. Todos feitos pela NeoX.',
-      playing_now: 'jogando agora', visits: 'visitas', soon: 'Em breve', soon_note: 'A gente conta o progresso no Discord.',
-      game_1_desc: 'Entre em mundos de anime, enfrente chefes e monte seu time de campeões.',
-      game_2_desc: 'Simulador de clique de anime. Clique, fique mais forte e evolua sem parar.',
-      game_3_desc: 'Sobrevivência tática, loot e decisões rápidas. Dropa, equipa e vai.',
+      about_tag: 'Sobre', about_title: 'Quem é a NeoX',
+      about_desc: 'A NeoX Inc é um grupo de desenvolvedores de jogos do Roblox, liderado pelo SasaDev. É o grupo oficial do Anime Paradise e do Anime Crash.',
+      feat_1_title: 'Anime Paradise', feat_1_desc: 'Explore mundos de anime, derrote inimigos e recrute campeões.',
+      feat_2_title: 'Em qualquer tela', feat_2_desc: 'O Anime Paradise roda em computador, celular, tablet e console.',
+      feat_3_title: 'Anime Crash', feat_3_desc: 'Em breve.',
+      about_box_title: 'A equipe',
+      about_box_desc: 'UI/UX, animação, modelagem 3D, VFX, game design e comunidade. Cada perfil está na seção Equipe.',
+      tech_ui: 'UI/UX', tech_model: 'Modelagem 3D',
+      community_tag: 'Comunidade', community_title: 'Grupo e Discord',
+      group_title: 'Grupo Neo X Inc', group_desc: 'Grupo oficial dos jogos no Roblox.',
+      dc_title: 'Discord da Comunidade', dc_desc: 'Servidor da comunidade no Discord.',
+      games_tag: 'Jogos', games_title: 'Nossos jogos',
+      games_subtitle: 'Os jogos da NeoX no Roblox.',
+      playing_now: 'jogando agora', visits: 'visitas', soon: 'Em breve', soon_note: 'Novidades no Discord.',
+      game_1_desc: 'Explore mundos de anime, derrote inimigos para ganhar moedas e recrute campeões.',
+      game_2_desc: 'Simulador de clique de anime. Em breve.',
+      game_3_desc: 'Ranks, missões e recompensas diárias, com paraquedas, loot boxes e avatares para coletar.',
       btn_play: 'Jogar Agora', btn_preview: 'Ver Projeto', game_discord: 'Game Discord', discord_soon: 'Discord Coming Soon',
-      media_tag: 'Por dentro dos jogos', media_title: 'Veja em movimento',
-      media_subtitle: 'Gameplay, bastidores e alguns testes que a gente não resistiu em mostrar.',
+      media_tag: 'Vídeos e imagens', media_title: 'Gameplay',
+      media_subtitle: 'Trechos de gameplay e imagens dos jogos.',
       ac_1_title: 'Combate & Movimento', ac_2_title: 'Missões & Recompensas', ac_3_title: 'Árvore de Habilidades',
       media_cutscene_ui: 'Cinemática & UI', media_movement: 'Movimentação', media_models: 'Modelos', media_soon: 'Mídia em breve',
       media_error: 'Vídeo indisponível. Toque para tentar de novo.',
-      team_tag: 'Quem faz acontecer', team_title: 'A Equipe NeoX',
-      team_subtitle: 'Um time pequeno, próximo e que gosta do que faz. Clique em alguém para abrir o perfil.',
+      team_tag: 'Equipe', team_title: 'Equipe NeoX',
+      team_subtitle: 'Clique em um perfil para ver o que cada pessoa faz.',
       role_owner: 'Owner', role_coowner_gd: 'Co-Owner & Game Designer', role_gd: 'Designer de Jogos', role_animator: 'Animador',
       role_modeler: 'Modelador', role_vfx: 'VFX Maker', role_ui: 'UI/UX Maker', role_cm: 'Community Manager',
       profile: 'Perfil Roblox', dev_more: 'Ver perfil',
@@ -1789,10 +1800,10 @@ window.NEOX_CONFIG = Object.freeze({
       team_status: (i, total, name) => `${i} / ${total} · ${name}`,
       dev_back: 'Toda a equipe', dev_tag: 'Perfil da equipe', dev_duties: 'O que faz na NeoX', dev_team: 'A equipe',
       dev_prev: 'Anterior', dev_next: 'Próximo', dev_profile_of: (n) => `Perfil de ${n}`,
-      contact_tag: 'Fala com a gente', contact_title: 'Tem uma ideia, dúvida ou só quer dar um oi?',
-      contact_subtitle: 'Manda uma mensagem ou aparece no Discord. A gente responde de verdade.',
+      contact_tag: 'Contato', contact_title: 'Fale com a gente',
+      contact_subtitle: 'Mande uma mensagem pelo formulário ou chame no Discord.',
       form_name: 'Seu nome', form_email: 'Seu e-mail', form_roblox: 'Seu nick no Roblox (opcional)',
-      form_msg: 'Sua mensagem (mínimo 16 caracteres)', form_btn: 'Mandar mensagem', form_note: 'Prefere conversar? O Discord tá aberto.',
+      form_msg: 'Sua mensagem (mínimo 16 caracteres)', form_btn: 'Mandar mensagem', form_note: 'Também dá para falar pelo Discord.',
       official_discord: 'Nosso Discord',
       footer: '© 2026 NeoX Studio. Todos os direitos reservados.',
       stats_loading: 'Buscando os números do Roblox…', stats_unavailable: 'Não deu para buscar os números agora.',
@@ -1817,39 +1828,39 @@ window.NEOX_CONFIG = Object.freeze({
     },
     en: {
       skip: 'Skip to content', loading: 'Loading…',
-      nav_home: 'Home', nav_about: 'About', nav_games: 'Games', nav_media: 'Trailers', nav_team: 'Team', nav_contact: 'Contact',
-      hero_tag: 'Built by people who play',
-      hero_title_1: 'Made to play,', hero_title_2: 'hard to put down.',
+      tech_anim: 'Animation', tech_vfx: 'VFX', meta_desc: 'NeoX Studio makes Roblox games: Anime Paradise, Anime Crash and FREE FIRE MAX.', logo_alt: 'NeoX Studio logo', brand_aria: 'NeoX Studio — home', nav_main: 'Main', nav_mobile: 'Mobile menu', footer_nav: 'Footer links', dev_pager: 'Browse profiles', v_ac_1: 'Anime Crash — combat and movement', v_ap_1: 'Anime Paradise — cutscene and interface', v_ap_2: 'Anime Paradise — movement', alt_ac_2: 'Anime Crash missions and rewards', alt_ac_3: 'Anime Crash skill tree', alt_ap_models: 'Anime Paradise models', team_role: 'carousel', nav_home: 'Home', nav_about: 'About', nav_games: 'Games', nav_media: 'Trailers', nav_team: 'Team', nav_contact: 'Contact',
+      hero_tag: 'Roblox game studio',
+      hero_title_1: 'We make games', hero_title_2: 'on Roblox.',
       rot_pre: 'Games full of', rot_words: ['anime', 'action', 'adventure', 'survival', 'fun'],
-      hero_desc: 'NeoX makes Roblox games you can open, explore and enjoy. No sign-up, no fuss: just jump in.',
+      hero_desc: 'Anime Paradise is out on Roblox. Anime Crash is coming soon.',
       btn_explore: 'See the games',
       stat_1: 'Playing now', stat_2: 'Likes', stat_3: 'Favorites', stat_4: 'Visits',
       stats_region: 'NeoX Studio statistics',
-      about_tag: 'Who we are', about_title: 'We take fun seriously.',
-      about_desc: 'NeoX started with a simple idea: make games you want to stay in. Every map, animation and detail goes through our team — and through the people who play.',
-      feat_1_title: 'Gameplay that responds', feat_1_desc: 'Precise controls, no stutter.',
-      feat_2_title: 'Real people', feat_2_desc: 'The community helps decide what comes next.',
-      feat_3_title: 'Always something new', feat_3_desc: 'Frequent updates, no empty promises.',
-      about_box_title: 'Made in the details',
-      about_box_desc: 'UI, Luau, animation and modeling: every part goes through someone on the team. The result looks simple — because the heavy lifting stays backstage.',
-      tech_ui: 'UI Design', tech_model: 'Modeling',
-      community_tag: 'Where we meet', community_title: 'Join the conversation',
-      group_title: 'Neo X Inc Group', group_desc: 'News, tests and updates straight on Roblox.',
-      dc_title: 'Community Discord', dc_desc: 'Behind the scenes, questions and community talk.',
-      games_tag: 'Pick one and play', games_title: 'Our Games',
-      games_subtitle: 'Each one has a different vibe. All made by NeoX.',
-      playing_now: 'playing', visits: 'visits', soon: 'Coming soon', soon_note: 'We share progress on Discord.',
-      game_1_desc: 'Step into anime worlds, take on bosses and build your team of champions.',
-      game_2_desc: 'Anime clicker simulator. Click, get stronger and keep evolving.',
-      game_3_desc: 'Tactical survival, loot and quick calls. Drop in, gear up and go.',
+      about_tag: 'About', about_title: 'Who NeoX is',
+      about_desc: 'NeoX Inc is a group of Roblox game developers led by SasaDev. It is the official group for Anime Paradise and Anime Crash.',
+      feat_1_title: 'Anime Paradise', feat_1_desc: 'Explore anime worlds, defeat enemies and recruit champions.',
+      feat_2_title: 'Any device', feat_2_desc: 'Anime Paradise runs on PC, phone, tablet and console.',
+      feat_3_title: 'Anime Crash', feat_3_desc: 'Coming soon.',
+      about_box_title: 'The team',
+      about_box_desc: 'UI/UX, animation, 3D modeling, VFX, game design and community. Each profile is in the Team section.',
+      tech_ui: 'UI/UX', tech_model: '3D modeling',
+      community_tag: 'Community', community_title: 'Group and Discord',
+      group_title: 'Neo X Inc Group', group_desc: 'Official group for the games on Roblox.',
+      dc_title: 'Community Discord', dc_desc: 'Community server on Discord.',
+      games_tag: 'Games', games_title: 'Our games',
+      games_subtitle: 'NeoX games on Roblox.',
+      playing_now: 'playing', visits: 'visits', soon: 'Coming soon', soon_note: 'News on Discord.',
+      game_1_desc: 'Explore anime worlds, defeat enemies to earn coins and recruit champions.',
+      game_2_desc: 'Anime clicker simulator. Coming soon.',
+      game_3_desc: 'Ranks, missions and daily rewards, with parachutes, loot boxes and avatars to collect.',
       btn_play: 'Play Now', btn_preview: 'View Project', game_discord: 'Game Discord', discord_soon: 'Discord Coming Soon',
-      media_tag: 'Inside the games', media_title: 'See it in motion',
-      media_subtitle: 'Gameplay, behind the scenes and a few tests we could not resist showing.',
+      media_tag: 'Videos and images', media_title: 'Gameplay',
+      media_subtitle: 'Gameplay clips and images from the games.',
       ac_1_title: 'Combat & Movement', ac_2_title: 'Missions & Rewards', ac_3_title: 'Skill Tree',
       media_cutscene_ui: 'Cutscene & UI', media_movement: 'Movement', media_models: 'Models', media_soon: 'Media coming soon',
       media_error: 'Video unavailable. Tap to try again.',
-      team_tag: 'The people behind it', team_title: 'The NeoX Team',
-      team_subtitle: 'A small, close team that enjoys what it does. Click anyone to open their profile.',
+      team_tag: 'Team', team_title: 'The NeoX team',
+      team_subtitle: 'Click a profile to see what each person does.',
       role_owner: 'Owner', role_coowner_gd: 'Co-Owner & Game Designer', role_gd: 'Game Designer', role_animator: 'Animator',
       role_modeler: 'Modeler', role_vfx: 'VFX Maker', role_ui: 'UI/UX Maker', role_cm: 'Community Manager',
       profile: 'Roblox Profile', dev_more: 'View profile',
@@ -1857,10 +1868,10 @@ window.NEOX_CONFIG = Object.freeze({
       team_status: (i, total, name) => `${i} / ${total} · ${name}`,
       dev_back: 'Whole team', dev_tag: 'Team profile', dev_duties: 'What they do at NeoX', dev_team: 'The team',
       dev_prev: 'Previous', dev_next: 'Next', dev_profile_of: (n) => `${n}'s profile`,
-      contact_tag: 'Talk to us', contact_title: 'Got an idea, a question, or just want to say hi?',
-      contact_subtitle: 'Send a message or drop by Discord. A real person answers.',
+      contact_tag: 'Contact', contact_title: 'Get in touch',
+      contact_subtitle: 'Send a message through the form or reach us on Discord.',
       form_name: 'Your name', form_email: 'Your email', form_roblox: 'Roblox username (optional)',
-      form_msg: 'Your message (at least 16 characters)', form_btn: 'Send message', form_note: 'Rather chat? Discord is open.',
+      form_msg: 'Your message (at least 16 characters)', form_btn: 'Send message', form_note: 'You can also reach us on Discord.',
       official_discord: 'Our Discord',
       footer: '© 2026 NeoX Studio. All rights reserved.',
       stats_loading: 'Fetching Roblox numbers…', stats_unavailable: 'Could not fetch the numbers right now.',
@@ -1899,6 +1910,7 @@ window.NEOX_CONFIG = Object.freeze({
   let devIndex = -1;
   let savedScroll = 0;
   let navRaf = null;
+  let navLockId = null;
   let updateTeamStatus = () => {};
   let rotTimer = null;
   let rotIdx = 0;
@@ -1927,8 +1939,10 @@ window.NEOX_CONFIG = Object.freeze({
   let lastLiveAt = 0;
 
   /* ---------------- Números ---------------- */
-  const fmtFull = (v) => new Intl.NumberFormat(locale()).format(Math.round(v));
-  const fmtCompact = (v) => (v < 1e6 ? fmtFull(v) : new Intl.NumberFormat(locale(), { notation: 'compact', maximumFractionDigits: 1 }).format(v));
+  const nfCache = {};
+  const nf = (k, o) => nfCache[locale() + k] || (nfCache[locale() + k] = new Intl.NumberFormat(locale(), o));
+  const fmtFull = (v) => nf('f').format(Math.round(v));
+  const fmtCompact = (v) => (v < 1e6 ? fmtFull(v) : nf('c', { notation: 'compact', maximumFractionDigits: 1 }).format(v));
 
   function setValue(el, value, compact = false) {
     if (!el) return;
@@ -2005,6 +2019,8 @@ window.NEOX_CONFIG = Object.freeze({
     $$('[data-i18n]').forEach((el) => { const v = t[el.dataset.i18n]; if (typeof v === 'string') el.textContent = v; });
     $$('[data-i18n-aria]').forEach((el) => { const v = t[el.dataset.i18nAria]; if (typeof v === 'string') el.setAttribute('aria-label', v); });
     $$('[data-i18n-title]').forEach((el) => { const v = t[el.dataset.i18nTitle]; if (typeof v === 'string') el.setAttribute('title', v); });
+    $$('[data-i18n-alt]').forEach((el) => { const v = t[el.dataset.i18nAlt]; if (typeof v === 'string') el.setAttribute('alt', v); });
+    const md = $('meta[name="description"]'); if (md && t.meta_desc) md.setAttribute('content', t.meta_desc);
     $$('[data-i18n-placeholder]').forEach((el) => { const v = t[el.dataset.i18nPlaceholder]; if (typeof v === 'string') el.setAttribute('placeholder', v); });
     const label = $('#lang-label');
     if (label) label.textContent = lang === 'pt' ? 'PT-BR' : 'EN';
@@ -2088,6 +2104,12 @@ window.NEOX_CONFIG = Object.freeze({
     const pill = $('.nav-pill');
     let ticking = false, lastY = window.scrollY, parallaxOn = false, lastProgress = -1, lastCurrent = null;
     let activeLink = null, pillReady = false;
+    let tops = [], dirty = true;
+    const measure = () => { tops = sections.map((x) => x.getBoundingClientRect().top + window.scrollY); dirty = false; };
+    const markDirty = () => { dirty = true; };
+    window.addEventListener('resize', markDirty, { passive: true });
+    window.addEventListener('load', markDirty);
+    if ('ResizeObserver' in window && $('#main')) new ResizeObserver(markDirty).observe($('#main'));
 
     function placePill(link) {
       if (!pill || !nav) return;
@@ -2155,8 +2177,10 @@ window.NEOX_CONFIG = Object.freeze({
 
       let current = sections[0] ? sections[0].id : '';
       if (view) current = view.type === 'game' ? 'games' : 'team';
+      else if (navLockId && root.classList.contains('is-navigating')) current = navLockId;
       else {
-        if (y > 10) for (const s of sections) if (s.getBoundingClientRect().top <= window.innerHeight * 0.35) current = s.id;
+        if (dirty) measure();
+        if (y > 10) { const line = y + window.innerHeight * 0.35; for (let i = 0; i < sections.length; i++) if (tops[i] <= line) current = sections[i].id; }
         if (max > 0 && window.innerHeight + y >= root.scrollHeight - 4 && sections.length) current = sections[sections.length - 1].id;
       }
       if (current !== lastCurrent) {
@@ -2380,52 +2404,27 @@ window.NEOX_CONFIG = Object.freeze({
     document.addEventListener('visibilitychange', retry);
   })();
 
-  /* ---------------- Faixas infinitas (uma para cada lado) ---------------- */
-  $$('.marquee').forEach((marquee) => {
-    const track = $('.marquee-track', marquee);
-    const group = track && $('.marquee-group', track);
-    if (!track || !group) return;
-    const dir = marquee.dataset.dir === '1' ? 1 : -1;
-    let offset = 0, last = 0, width = 0, active = true, running = false, boost = 0, lastSY = window.scrollY;
-    const speed = 36;
-    const fill = () => {
-      const measured = group.getBoundingClientRect().width;
-      if (!measured) return;
-      width = measured;
-      const need = Math.ceil((window.innerWidth + width * 2) / width);
-      while (track.children.length < need) {
-        const copy = group.cloneNode(true);
-        copy.setAttribute('aria-hidden', 'true');
-        track.appendChild(copy);
-      }
-    };
-    const frame = (now) => {
-      if (!active || document.hidden) { running = false; last = 0; return; }
-      if (!last) last = now;
-      const dt = Math.min(64, now - last) / 1000;
-      last = now;
-      if (width > 0) {
-        const sy = window.scrollY;
-        boost += (Math.min(110, Math.abs(sy - lastSY) * 6) - boost) * 0.06;
-        lastSY = sy;
-        const v = (speed + boost) * dt;
-        if (dir < 0) { offset -= v; while (offset <= -width) offset += width; }
-        else { offset += v; while (offset > 0) offset -= width; }
-        track.style.transform = `translate3d(${offset.toFixed(2)}px,0,0)`;
-      }
-      requestAnimationFrame(frame);
-    };
-    const kick = () => { if (!running && active && !document.hidden) { running = true; last = 0; requestAnimationFrame(frame); } };
-    fill();
-    window.addEventListener('resize', debounce(fill, 150), { passive: true });
-    window.addEventListener('load', fill);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fill);
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver((entries) => entries.forEach((en) => { active = en.isIntersecting; kick(); })).observe(track);
-    }
-    document.addEventListener('visibilitychange', kick);
-    kick();
-  });
+  /* ---------------- Faixas infinitas (animação CSS, sem JS por quadro) ---------------- */
+  const marquees = $$('.marquee');
+  function fillMarquees() {
+    marquees.forEach((m) => {
+      const track = $('.marquee-track', m), group = track && $('.marquee-group', track);
+      const w = group ? group.getBoundingClientRect().width : 0;
+      if (!w) return;
+      const need = Math.ceil((window.innerWidth + w) / w) + 1;
+      while (track.children.length < need) { const c = group.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c); }
+      track.style.setProperty('--mw', w + 'px');
+      track.style.setProperty('--md', (w / 36).toFixed(1) + 's');
+    });
+  }
+  fillMarquees();
+  window.addEventListener('resize', debounce(fillMarquees, 150), { passive: true });
+  window.addEventListener('load', fillMarquees);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fillMarquees);
+  if ('IntersectionObserver' in window) {
+    const mo = new IntersectionObserver((es) => es.forEach((e) => e.target.classList.toggle('is-on', e.isIntersecting)));
+    marquees.forEach((m) => mo.observe(m));
+  } else marquees.forEach((m) => m.classList.add('is-on'));
 
   /* ---------------- Estatísticas Roblox ---------------- */
   const votesTimer = { at: 0 };
@@ -2796,6 +2795,7 @@ window.NEOX_CONFIG = Object.freeze({
       if (nextBtn) nextBtn.setAttribute('aria-label', dict().team_next);
       if (dotsRoot) dotsRoot.setAttribute('aria-label', dict().team_dots);
       viewport.setAttribute('aria-label', `${dict().team_region}: ${nameOf(index)}`);
+      viewport.setAttribute('aria-roledescription', dict().team_role);
     };
     function normalize() {
       let changed = false;
@@ -2810,11 +2810,16 @@ window.NEOX_CONFIG = Object.freeze({
       } else paint();
     }
     function settle() { clearTimeout(lockTimer); locked = false; normalize(); }
+    function syncProgress() {
+      if (!progressAnim) return;
+      if (!paused && inView && !document.hidden && !dragging) progressAnim.play(); else progressAnim.pause();
+    }
     function restartProgress() {
       if (!progressEl || !progressEl.animate) return;
-      if (progressAnim) progressAnim.cancel();
+      if (progressAnim) { progressAnim.onfinish = null; progressAnim.cancel(); }
       progressAnim = progressEl.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: AUTO_MS, easing: 'linear', fill: 'forwards' });
-      if (paused) progressAnim.pause();
+      progressAnim.onfinish = () => { if (locked || dragging) { restartProgress(); return; } index += 1; beginMove(); };
+      syncProgress();
     }
     function beginMove() {
       locked = true;
@@ -2853,7 +2858,7 @@ window.NEOX_CONFIG = Object.freeze({
       if (!dragging) {
         if (Math.abs(mx) < 8 && Math.abs(my) < 8) return;
         if (Math.abs(my) > Math.abs(mx)) { pressed = false; return; }
-        dragging = true;
+        dragging = true; syncProgress();
         try { viewport.setPointerCapture(pid); } catch (err) { /* Safari antigo */ }
         track.style.transition = 'none';
         viewport.classList.add('is-dragging');
@@ -2864,7 +2869,7 @@ window.NEOX_CONFIG = Object.freeze({
     function endDrag(e) {
       if (e && e.pointerId !== pid) return;
       const was = dragging;
-      pressed = false; dragging = false;
+      pressed = false; dragging = false; syncProgress();
       viewport.classList.remove('is-dragging');
       if (!was) return;
       try { viewport.releasePointerCapture(pid); } catch (err) { /* ok */ }
@@ -2895,21 +2900,19 @@ window.NEOX_CONFIG = Object.freeze({
       else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
     });
 
-    setInterval(() => {
-      if (document.hidden || paused || dragging || locked || !inView) return;
-      if (Date.now() - lastUser < 7000) return;
-      index += 1;
-      beginMove();
-    }, AUTO_MS);
-    const pause = () => { paused = true; if (progressAnim) progressAnim.pause(); };
-    const resume = () => { paused = false; lastUser = Date.now(); if (progressAnim) progressAnim.play(); };
+    if (!(progressEl && progressEl.animate)) {
+      setInterval(() => { if (document.hidden || paused || dragging || locked || !inView) return; index += 1; beginMove(); }, AUTO_MS);
+    }
+    document.addEventListener('visibilitychange', syncProgress);
+    const pause = () => { paused = true; syncProgress(); };
+    const resume = () => { paused = false; syncProgress(); };
     viewport.addEventListener('mouseenter', pause);
     viewport.addEventListener('mouseleave', resume);
     viewport.addEventListener('focusin', pause);
     viewport.addEventListener('focusout', resume);
 
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver((entries) => entries.forEach((en) => { inView = en.isIntersecting; if (inView) restartProgress(); }), { threshold: 0.15 }).observe(viewport);
+      new IntersectionObserver((entries) => entries.forEach((en) => { inView = en.isIntersecting; syncProgress(); }), { threshold: 0.15 }).observe(viewport);
     } else inView = true;
 
     const relayout = debounce(() => {
@@ -2939,49 +2942,40 @@ window.NEOX_CONFIG = Object.freeze({
   const hideToast = () => { if (!toast) return; toast.classList.remove('is-visible'); toast.setAttribute('aria-hidden', 'true'); };
   function cancelNav() {
     if (navRaf) { cancelAnimationFrame(navRaf); navRaf = null; }
+    navLockId = null;
     root.classList.remove('is-navigating', 'is-traveling');
-    hideToast();
   }
-  function flash(section) {
-    if (!section) return;
-    section.classList.remove('is-arriving');
-    void section.offsetWidth;
-    section.classList.add('is-arriving');
-    clearTimeout(section._arriveTimer);
-    section._arriveTimer = setTimeout(() => section.classList.remove('is-arriving'), 2400);
-  }
+  function flash() { /* sem efeito de chegada: evita efeitos empilhados ao clicar rápido */ }
   function targetTop(target) {
     const offset = siteHeader && !siteHeader.classList.contains('is-hidden') ? siteHeader.offsetHeight + 18 : 24;
     return Math.max(0, Math.round(window.scrollY + target.getBoundingClientRect().top - offset));
   }
-  function jumpTo(target) {
-    window.scrollTo(0, target.id === 'home' ? 0 : targetTop(target));
-    flash(target);
-  }
-  function animateTo(target, labelOverride) {
+  function jumpTo(target) { window.scrollTo(0, target.id === 'home' ? 0 : targetTop(target)); }
+  function animateTo(target) {
     if (!target) return;
+    if (navRaf && navLockId === target.id) return; /* já está indo para lá */
     cancelNav();
-    const to = target.id === 'home' ? 0 : targetTop(target);
+    const dest = () => (target.id === 'home' ? 0 : targetTop(target));
     const from = window.scrollY;
-    const distance = to - from;
-    if (Math.abs(distance) < 3) { window.scrollTo(0, to); flash(target); return; }
+    if (Math.abs(dest() - from) < 3) { window.scrollTo(0, dest()); return; }
     if (siteHeader) siteHeader.classList.remove('is-hidden');
-    const navLink = target.id ? $(`.nav-link[href="#${target.id}"]`) : null;
-    showToast(labelOverride || dict().going_to(navLink ? navLink.textContent.trim() : ''));
+    navLockId = target.id;
     root.classList.add('is-navigating', 'is-traveling');
-    const duration = Math.min(2200, Math.max(900, Math.abs(distance) * 0.9));
+    window.dispatchEvent(new Event('neox:view'));
+    const duration = Math.min(800, Math.max(380, Math.abs(dest() - from) * 0.35));
     const started = performance.now();
-    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
     const stepFn = (now) => {
       const t = Math.min(1, (now - started) / duration);
-      window.scrollTo(0, from + distance * ease(t));
+      window.scrollTo(0, from + (dest() - from) * (1 - Math.pow(1 - t, 3)));
       if (t < 1) navRaf = requestAnimationFrame(stepFn);
-      else { navRaf = null; cancelNav(); flash(target); }
+      else { navRaf = null; cancelNav(); window.dispatchEvent(new Event('neox:view')); }
     };
     navRaf = requestAnimationFrame(stepFn);
   }
-  window.addEventListener('wheel', () => { if (navRaf) cancelNav(); }, { passive: true });
-  window.addEventListener('touchstart', () => { if (navRaf) cancelNav(); }, { passive: true });
+  const stopNav = () => { if (navRaf) { cancelNav(); window.dispatchEvent(new Event('neox:view')); } };
+  window.addEventListener('wheel', stopNav, { passive: true });
+  window.addEventListener('touchstart', stopNav, { passive: true });
+  window.addEventListener('keydown', (e) => { if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key)) stopNav(); });
 
   const toTop = $('#to-top');
   if (toTop) toTop.addEventListener('click', () => {
