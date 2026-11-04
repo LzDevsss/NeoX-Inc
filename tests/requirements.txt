@@ -1,0 +1,3 @@
+fakeredis[lua]==2.40.0
+lupa==2.8
+redis==8.1.0
