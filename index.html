@@ -7,7 +7,7 @@
 
 <!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
      'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://games.roproxy.com https://thumbnails.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.rbxcdn.com; media-src 'self'; connect-src 'self' https://games.roproxy.com https://thumbnails.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; script-src-attr 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Anti-clickjacking: se o site for aberto dentro de um iframe de outro domínio, ele some e sai do quadro. -->
@@ -79,6 +79,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/neox-logo.png" fetchpriority="high">
 <link rel="preconnect" href="https://games.roproxy.com" crossorigin>
+<link rel="preconnect" href="https://thumbnails.roproxy.com" crossorigin>
 <link id="gf" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
@@ -888,7 +889,7 @@ img,video{-webkit-user-drag:none;user-drag:none}
 }
 
 /* Desempenho: sem animações que repintam a tela a cada quadro */
-.grad,.hero h1 .grad,.site-header::after,.game-card::before,.fs-card::before,.game-card::after,.section::before,.js .team-card.is-active .team-avatar,.nav-link.is-active{ animation:none; }
+.grad,.hero h1 .grad,.site-header::after,.game-card::before,.fs-card::before,.game-card::after,.section::before,.js .team-card.is-active .team-avatar,
 .btn-primary:not(.header-discord):not(:disabled),.hero-cta .btn-primary,.header-discord{ animation:none; }
 @media (hover:hover){ .game-card:hover::after{ animation:ang-spin 3.6s linear infinite; } }
 .hero::before{ display:none; }
@@ -1768,13 +1769,13 @@ window.NEOX_CONFIG = Object.freeze({
       btn_explore: 'Ver os jogos',
       stat_1: 'Jogando agora', stat_2: 'Curtidas', stat_3: 'Favoritos', stat_4: 'Visitas',
       stats_region: 'Estatísticas NeoX Studio',
-      about_tag: 'Sobre', about_title: 'Quem é a NeoX',
-      about_desc: 'A NeoX Inc é um grupo de desenvolvedores de jogos do Roblox, liderado pelo SasaDev. É o grupo oficial do Anime Paradise e do Anime Crash.',
+      about_tag: 'Sobre', about_title: 'O que fazemos',
+      about_desc: 'Fazemos jogos para o Roblox. O Anime Paradise já está no ar e o Anime Crash está em desenvolvimento. Os dois saem pelo grupo Neo X Inc.',
       feat_1_title: 'Anime Paradise', feat_1_desc: 'Explore mundos de anime, derrote inimigos e recrute campeões.',
       feat_2_title: 'Em qualquer tela', feat_2_desc: 'O Anime Paradise roda em computador, celular, tablet e console.',
-      feat_3_title: 'Anime Crash', feat_3_desc: 'Em breve.',
-      about_box_title: 'A equipe',
-      about_box_desc: 'UI/UX, animação, modelagem 3D, VFX, game design e comunidade. Cada perfil está na seção Equipe.',
+      feat_3_title: 'Anime Crash', feat_3_desc: 'Em desenvolvimento. As novidades saem no Discord.',
+      about_box_title: 'Quem trabalha aqui',
+      about_box_desc: 'Game design, UI/UX, animação, modelagem 3D, VFX e comunidade. Cada pessoa tem um perfil na seção Equipe.',
       tech_ui: 'UI/UX', tech_model: 'Modelagem 3D',
       community_tag: 'Comunidade', community_title: 'Grupo e Discord',
       group_title: 'Grupo Neo X Inc', group_desc: 'Grupo oficial dos jogos no Roblox.',
@@ -1783,7 +1784,7 @@ window.NEOX_CONFIG = Object.freeze({
       games_subtitle: 'Os jogos da NeoX no Roblox.',
       playing_now: 'jogando agora', visits: 'visitas', soon: 'Em breve', soon_note: 'Novidades no Discord.',
       game_1_desc: 'Explore mundos de anime, derrote inimigos para ganhar moedas e recrute campeões.',
-      game_2_desc: 'Simulador de clique de anime. Em breve.',
+      game_2_desc: 'Simulador de clique de anime. Em desenvolvimento.',
       game_3_desc: 'Ranks, missões e recompensas diárias, com paraquedas, loot boxes e avatares para coletar.',
       btn_play: 'Jogar Agora', btn_preview: 'Ver Projeto', game_discord: 'Game Discord', discord_soon: 'Discord Coming Soon',
       media_tag: 'Vídeos e imagens', media_title: 'Gameplay',
@@ -1809,9 +1810,9 @@ window.NEOX_CONFIG = Object.freeze({
       stats_loading: 'Buscando os números do Roblox…', stats_unavailable: 'Não deu para buscar os números agora.',
       stats_prefix: 'Números atualizados às', src_live: 'ao vivo', src_cache: 'último valor salvo',
       sending: 'Enviando…', sent: 'Mensagem enviada. A gente responde assim que puder.',
-      send_error: 'Não deu para enviar. Tenta de novo ou chama no Discord.',
+      send_error: 'Não foi possível enviar. Tente de novo ou chame no Discord.',
       send_activation: 'O formulário ainda precisa ser ativado pelo dono do site. Chama a gente no Discord por enquanto.',
-      form_wait: 'Calma aí! Espera um pouquinho antes de mandar outra mensagem.', form_cooldown: 'Você já enviou uma mensagem. Aguarde 30 minutos para mandar outra.',
+      form_wait: 'Espere alguns segundos antes de enviar.', form_cooldown: (m) => `Você já enviou uma mensagem. Tente de novo em ${m} min.`,
       form_off: 'O formulário está fora do ar por enquanto. Chama a gente no Discord.',
       msg_short: 'Escreve um pouco mais (pelo menos 16 caracteres).',
       email_bad: 'Digite um e-mail válido.', name_short: 'Digite seu nome.',
@@ -1822,7 +1823,7 @@ window.NEOX_CONFIG = Object.freeze({
       gp_play: 'Jogar no Roblox', gp_playing: 'Jogando agora', gp_peak: 'Pico desta visita', gp_visits: 'Visitas totais',
       gp_likes: 'Curtidas', gp_favs: 'Favoritos', gp_approval: 'Aprovação',
       gp_images: 'Imagens do jogo', gp_details: 'Detalhes', gp_genre: 'Gênero', gp_max: 'Jogadores por servidor', gp_upd: 'Última atualização',
-      gp_wait: 'Coletando dados… o gráfico monta enquanto você fica aqui.', gp_tick: 'Ao vivo: atualiza a cada 10 segundos',
+      gp_wait: 'Coletando dados. O gráfico aparece em alguns segundos.', gp_tick: 'Ao vivo: atualiza a cada 10 segundos',
       title: 'NeoX Studio | Jogos no Roblox',
       fs_tag: 'Em destaque', footer_disc: 'Estúdio independente. Sem afiliação com a Roblox Corporation.'
     },
@@ -1836,13 +1837,13 @@ window.NEOX_CONFIG = Object.freeze({
       btn_explore: 'See the games',
       stat_1: 'Playing now', stat_2: 'Likes', stat_3: 'Favorites', stat_4: 'Visits',
       stats_region: 'NeoX Studio statistics',
-      about_tag: 'About', about_title: 'Who NeoX is',
-      about_desc: 'NeoX Inc is a group of Roblox game developers led by SasaDev. It is the official group for Anime Paradise and Anime Crash.',
+      about_tag: 'About', about_title: 'What we do',
+      about_desc: 'We make games for Roblox. Anime Paradise is live and Anime Crash is in development. Both come from the Neo X Inc group.',
       feat_1_title: 'Anime Paradise', feat_1_desc: 'Explore anime worlds, defeat enemies and recruit champions.',
       feat_2_title: 'Any device', feat_2_desc: 'Anime Paradise runs on PC, phone, tablet and console.',
-      feat_3_title: 'Anime Crash', feat_3_desc: 'Coming soon.',
-      about_box_title: 'The team',
-      about_box_desc: 'UI/UX, animation, 3D modeling, VFX, game design and community. Each profile is in the Team section.',
+      feat_3_title: 'Anime Crash', feat_3_desc: 'In development. News goes out on Discord.',
+      about_box_title: 'Who works here',
+      about_box_desc: 'Game design, UI/UX, animation, 3D modeling, VFX and community. Each person has a profile in the Team section.',
       tech_ui: 'UI/UX', tech_model: '3D modeling',
       community_tag: 'Community', community_title: 'Group and Discord',
       group_title: 'Neo X Inc Group', group_desc: 'Official group for the games on Roblox.',
@@ -1851,7 +1852,7 @@ window.NEOX_CONFIG = Object.freeze({
       games_subtitle: 'NeoX games on Roblox.',
       playing_now: 'playing', visits: 'visits', soon: 'Coming soon', soon_note: 'News on Discord.',
       game_1_desc: 'Explore anime worlds, defeat enemies to earn coins and recruit champions.',
-      game_2_desc: 'Anime clicker simulator. Coming soon.',
+      game_2_desc: 'Anime clicker simulator. In development.',
       game_3_desc: 'Ranks, missions and daily rewards, with parachutes, loot boxes and avatars to collect.',
       btn_play: 'Play Now', btn_preview: 'View Project', game_discord: 'Game Discord', discord_soon: 'Discord Coming Soon',
       media_tag: 'Videos and images', media_title: 'Gameplay',
@@ -1879,7 +1880,7 @@ window.NEOX_CONFIG = Object.freeze({
       sending: 'Sending…', sent: 'Message sent. We will get back to you soon.',
       send_error: 'Could not send. Try again or reach us on Discord.',
       send_activation: 'The form still needs to be activated by the site owner. Reach us on Discord for now.',
-      form_wait: 'Easy there! Please wait a moment before sending another message.', form_cooldown: 'You already sent a message. Please wait 30 minutes before sending another.',
+      form_wait: 'Wait a few seconds before sending.', form_cooldown: (m) => `You already sent a message. Try again in ${m} min.`,
       form_off: 'The form is down for now. Reach us on Discord.',
       msg_short: 'Please write a bit more (at least 16 characters).',
       email_bad: 'Enter a valid email.', name_short: 'Enter your name.',
@@ -1890,7 +1891,7 @@ window.NEOX_CONFIG = Object.freeze({
       gp_play: 'Play on Roblox', gp_playing: 'Playing now', gp_peak: 'Peak this visit', gp_visits: 'Total visits',
       gp_likes: 'Likes', gp_favs: 'Favorites', gp_approval: 'Approval',
       gp_images: 'Game images', gp_details: 'Details', gp_genre: 'Genre', gp_max: 'Players per server', gp_upd: 'Last update',
-      gp_wait: 'Collecting data… the chart builds while you stay here.', gp_tick: 'Live: updates every 10 seconds',
+      gp_wait: 'Collecting data. The chart shows up in a few seconds.', gp_tick: 'Live: updates every 10 seconds',
       title: 'NeoX Studio | Games on Roblox',
       fs_tag: 'Featured', footer_disc: 'Independent studio. Not affiliated with Roblox Corporation.'
     }
@@ -1924,7 +1925,7 @@ window.NEOX_CONFIG = Object.freeze({
     ap: { slug: 'anime-paradise', name: 'Anime Paradise', img: 'assets/anime-paradise.png', pos: '50% 50%', desc: 'game_1_desc', play: 'https://www.roblox.com/pt/games/96665881849072/Anime-Paradise', dc: 'https://discord.gg/yACDzUah8Z' },
     ff: { slug: 'free-fire-max', name: 'FREE FIRE MAX', img: 'assets/free-fire-max.png', pos: '62% 50%', desc: 'game_3_desc', play: 'https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX', dc: '' }
   });
-  const UNIVERSE_TO_KEY = Object.fromEntries(Object.entries(GAMES).map(([key, g]) => [g.universe, key]));
+  const UNIVERSE_TO_KEY = Object.assign(Object.create(null), Object.fromEntries(Object.entries(GAMES).map(([key, g]) => [g.universe, key])));
   const FIELDS = ['playing', 'visits', 'favorites', 'likes', 'dislikes'];
   const NEOX_CONFIG = window.NEOX_CONFIG || {};
   const FORM_ENDPOINT = /^https:\/\/formsubmit\.co\/ajax\/[^\s]+$/.test(NEOX_CONFIG.formEndpoint || '') ? NEOX_CONFIG.formEndpoint : '';
@@ -2046,7 +2047,7 @@ window.NEOX_CONFIG = Object.freeze({
       else if (st === 'error') formStatus.textContent = t.send_error;
       else if (st === 'activation') formStatus.textContent = t.send_activation;
       else if (st === 'wait') formStatus.textContent = t.form_wait;
-      else if (st === 'cooldown') formStatus.textContent = t.form_cooldown;
+      else if (st === 'cooldown') formStatus.textContent = t.form_cooldown(num(formStatus.dataset.min) || 30);
     }
     if (view && view.type === 'game') { fillGamePage(); renderGamePage(); }
     if (view && view.type === 'dev') fillDevPage();
@@ -2439,7 +2440,9 @@ window.NEOX_CONFIG = Object.freeze({
     try {
       const response = await fetch(url, { signal: controller.signal, cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error('HTTP ' + response.status);
-      return await response.json();
+      const text = await response.text();
+      if (text.length > 400000) throw new Error('resposta grande demais');
+      return JSON.parse(text);
     } finally { clearTimeout(timer); }
   }
   async function fetchJina(target, timeout = 12000) {
@@ -2940,35 +2943,52 @@ window.NEOX_CONFIG = Object.freeze({
     toast.classList.add('is-visible');
   };
   const hideToast = () => { if (!toast) return; toast.classList.remove('is-visible'); toast.setAttribute('aria-hidden', 'true'); };
-  function cancelNav() {
+  function clearArriving() {
+    $$('.section.is-arriving').forEach((x) => { x.classList.remove('is-arriving'); clearTimeout(x._arriveTimer); });
+  }
+  function cancelNav(keepToast) {
     if (navRaf) { cancelAnimationFrame(navRaf); navRaf = null; }
     navLockId = null;
     root.classList.remove('is-navigating', 'is-traveling');
+    if (!keepToast) hideToast();
   }
-  function flash() { /* sem efeito de chegada: evita efeitos empilhados ao clicar rápido */ }
+  function flash(section) {
+    if (!section) return;
+    clearArriving();
+    void section.offsetWidth;
+    section.classList.add('is-arriving');
+    section._arriveTimer = setTimeout(() => section.classList.remove('is-arriving'), 2400);
+  }
   function targetTop(target) {
     const offset = siteHeader && !siteHeader.classList.contains('is-hidden') ? siteHeader.offsetHeight + 18 : 24;
     return Math.max(0, Math.round(window.scrollY + target.getBoundingClientRect().top - offset));
   }
-  function jumpTo(target) { window.scrollTo(0, target.id === 'home' ? 0 : targetTop(target)); }
-  function animateTo(target) {
+  function jumpTo(target) {
+    window.scrollTo(0, target.id === 'home' ? 0 : targetTop(target));
+    flash(target);
+  }
+  function animateTo(target, labelOverride) {
     if (!target) return;
     if (navRaf && navLockId === target.id) return; /* já está indo para lá */
-    cancelNav();
+    cancelNav(true);   /* mantém o aviso na tela: só troca o texto, sem piscar */
+    clearArriving();   /* nunca dois efeitos de chegada ao mesmo tempo */
     const dest = () => (target.id === 'home' ? 0 : targetTop(target));
     const from = window.scrollY;
-    if (Math.abs(dest() - from) < 3) { window.scrollTo(0, dest()); return; }
+    if (Math.abs(dest() - from) < 3) { window.scrollTo(0, dest()); hideToast(); flash(target); return; }
     if (siteHeader) siteHeader.classList.remove('is-hidden');
+    const navLink = target.id ? $(`.nav-link[href="#${target.id}"]`) : null;
+    showToast(labelOverride || dict().going_to(navLink ? navLink.textContent.trim() : ''));
     navLockId = target.id;
     root.classList.add('is-navigating', 'is-traveling');
     window.dispatchEvent(new Event('neox:view'));
-    const duration = Math.min(800, Math.max(380, Math.abs(dest() - from) * 0.35));
+    const duration = Math.min(2200, Math.max(900, Math.abs(dest() - from) * 0.9));
     const started = performance.now();
+    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
     const stepFn = (now) => {
       const t = Math.min(1, (now - started) / duration);
-      window.scrollTo(0, from + (dest() - from) * (1 - Math.pow(1 - t, 3)));
+      window.scrollTo(0, from + (dest() - from) * ease(t));
       if (t < 1) navRaf = requestAnimationFrame(stepFn);
-      else { navRaf = null; cancelNav(); window.dispatchEvent(new Event('neox:view')); }
+      else { navRaf = null; cancelNav(); window.dispatchEvent(new Event('neox:view')); flash(target); }
     };
     navRaf = requestAnimationFrame(stepFn);
   }
@@ -3026,7 +3046,8 @@ window.NEOX_CONFIG = Object.freeze({
       return index > -1 ? { type: 'dev', index } : { type: 'bad' };
     }
     if (/^#\//.test(h)) return { type: 'bad' };
-    return { type: 'section', id: h.slice(1) };
+    const sid = h.slice(1);
+    return { type: 'section', id: ['home', 'about', 'featured', 'games', 'media', 'team', 'contact', 'community', 'main'].includes(sid) ? sid : '' };
   }
 
   function enterView(next) {
@@ -3351,7 +3372,7 @@ window.NEOX_CONFIG = Object.freeze({
       if (!openedAt || Date.now() - openedAt < MIN_FILL_MS) { setStatus('wait', t.form_wait, 'is-error'); return; }
 
       const lastSent = num(store.get('neox-form-last')) || 0;
-      if (Date.now() - lastSent < COOLDOWN_MS) { setStatus('cooldown', t.form_cooldown, 'is-error'); return; }
+      if (Date.now() - lastSent < COOLDOWN_MS) { const left = Math.max(1, Math.ceil((COOLDOWN_MS - (Date.now() - lastSent)) / 60000)); formStatus.dataset.min = String(left); setStatus('cooldown', t.form_cooldown(left), 'is-error'); return; }
 
       const name = cleanLine(fName.value, 80);
       const email = cleanLine(fEmail.value, 120);
@@ -3473,7 +3494,7 @@ window.NEOX_CONFIG = Object.freeze({
   renderStats();
   renderStatsNote();
   refreshStats();
-  mediaLoop();
+  (window.requestIdleCallback || ((f) => setTimeout(f, 1500)))(() => mediaLoop(), { timeout: 3000 });
   syncRoute(true);
 })();
 </script>
